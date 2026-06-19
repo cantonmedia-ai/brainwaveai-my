@@ -1,0 +1,6 @@
+<svg width="96" height="96" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="manufacturing">
+  <rect width="24" height="24" rx="6" fill="#0F172A" fill-opacity="0.10"/>
+  <g stroke="#0F172A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 21V9l6 4V9l6 4V9l6 4v8H3Z"/><path d="M7 17h2M12 17h2M17 17h2"/>
+  </g>
+</svg>

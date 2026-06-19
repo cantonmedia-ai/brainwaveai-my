@@ -1,0 +1,6 @@
+<svg width="96" height="96" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="brainwave-play">
+  <rect width="24" height="24" rx="6" fill="#7C3AED" fill-opacity="0.10"/>
+  <g stroke="#7C3AED" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 8h8a4 4 0 0 1 4 4v3a3 3 0 0 1-5.2 2L13 15h-2l-1.8 2A3 3 0 0 1 4 15v-3a4 4 0 0 1 4-4Z"/><path d="M8 12h4M10 10v4M16 11h.01M18 14h.01"/>
+  </g>
+</svg>
