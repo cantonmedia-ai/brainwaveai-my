@@ -3,76 +3,782 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BrainwaveAI Malaysia</title>
-  <meta name="description" content="BrainwaveAI Malaysia builds AI chatbots, automation systems, and modern websites for businesses.">
+  <title>Brainwave AI | We Build AI Dreams Into Real Businesses</title>
+  <meta name="description" content="Brainwave AI is an AI dream builder and project incubator that creates, tests, and grows practical AI businesses with operators, partners, and investors.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body{margin:0;font-family:Arial,sans-serif;background:#07111f;color:#f7fbff}
-    header{display:flex;justify-content:space-between;align-items:center;padding:24px 7%;border-bottom:1px solid #1f3148}
-    .logo{font-weight:800;font-size:22px}.nav a{color:#c9d8ea;text-decoration:none;margin-left:22px}
-    .hero{padding:90px 7%;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
-    h1{font-size:58px;line-height:1;margin:0 0 22px}p{font-size:18px;line-height:1.7;color:#c9d8ea}
-    .tag{color:#54e6c4;font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:1px}
-    .btn{display:inline-block;background:#54e6c4;color:#06111f;padding:14px 22px;border-radius:8px;text-decoration:none;font-weight:800;margin-top:14px}
-    .panel{background:#0d1d32;border:1px solid #24405f;border-radius:18px;padding:28px;box-shadow:0 30px 80px #0006}
-    .card{background:#102842;margin:14px 0;padding:18px;border-radius:12px}.card b{display:block;font-size:22px;margin-top:6px}
-    section{padding:70px 7%}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.box{background:#0d1d32;padding:24px;border-radius:14px;border:1px solid #24405f}
-    h2{font-size:38px;margin:0 0 28px}.contact{background:#eef7ff;color:#07111f}.contact p{color:#38506b}
-    footer{padding:28px 7%;color:#8fa6bf}
-    @media(max-width:800px){.hero,.grid{grid-template-columns:1fr}h1{font-size:42px}.nav{display:none}}
+    :root {
+      --navy: #0b2545;
+      --blue: #1463ff;
+      --sky: #eaf6ff;
+      --coral: #ff6b6b;
+      --orange: #ff9f43;
+      --yellow: #ffd166;
+      --green: #4ccb7f;
+      --turquoise: #2ec4b6;
+      --lavender: #a78bfa;
+      --pink: #ff8db3;
+      --cream: #fff8ec;
+      --white: #ffffff;
+      --border: #e8edf5;
+      --muted: #56708f;
+      --shadow: 0 22px 70px rgba(11, 37, 69, .12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", Inter, Arial, sans-serif;
+      color: var(--navy);
+      background:
+        radial-gradient(circle at top left, rgba(255, 141, 179, .25), transparent 24rem),
+        radial-gradient(circle at top right, rgba(46, 196, 182, .2), transparent 22rem),
+        linear-gradient(180deg, #f6fbff 0%, #fff 42%, #fff8ec 100%);
+    }
+
+    a { color: inherit; }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 16px 5vw;
+      background: rgba(255, 255, 255, .88);
+      border-bottom: 1px solid rgba(232, 237, 245, .9);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: #073983;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 68% 32%, #fff 0 12%, transparent 13%),
+        conic-gradient(from 140deg, #1463ff, #2ec4b6, #1463ff);
+      box-shadow: 0 10px 26px rgba(20, 99, 255, .25);
+      font-weight: 800;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #193659;
+      padding: 10px 0;
+      border-bottom: 3px solid transparent;
+    }
+
+    .nav a:hover, .nav a.active {
+      color: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 14px;
+      text-decoration: none;
+      border: 1px solid transparent;
+      font-weight: 800;
+      box-shadow: 0 12px 28px rgba(20, 99, 255, .18);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(20, 99, 255, .22);
+    }
+
+    .button.primary { background: var(--blue); color: #fff; }
+    .button.secondary {
+      background: rgba(255, 255, 255, .85);
+      color: var(--navy);
+      border-color: #bdd2f0;
+      box-shadow: none;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(420px, 1.08fr);
+      gap: 48px;
+      align-items: center;
+      padding: 72px 5vw 92px;
+      background:
+        radial-gradient(circle at 7% 78%, rgba(255, 107, 107, .28), transparent 10rem),
+        radial-gradient(circle at 3% 55%, rgba(167, 139, 250, .22), transparent 8rem),
+        linear-gradient(125deg, #eaf6ff 0%, #ffffff 54%, #fff8ec 100%);
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: #0d4fa8;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 680px;
+      margin-bottom: 24px;
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: .99;
+      letter-spacing: -.045em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(92deg, #1463ff 0%, #ff4d8d 45%, #ff9f43 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy p:not(.eyebrow) {
+      max-width: 620px;
+      color: #31506f;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .studio {
+      position: relative;
+      min-height: 570px;
+      padding: 22px;
+      border-radius: 34px;
+      background: linear-gradient(150deg, rgba(255, 255, 255, .72), rgba(234, 246, 255, .86));
+      border: 1px solid rgba(255, 255, 255, .8);
+      box-shadow: var(--shadow);
+    }
+
+    .board {
+      position: relative;
+      min-height: 380px;
+      padding: 24px;
+      border-radius: 24px;
+      background:
+        linear-gradient(rgba(255, 255, 255, .55), rgba(255, 255, 255, .55)),
+        repeating-linear-gradient(45deg, #e9b277 0 10px, #efc18b 10px 20px);
+      box-shadow: inset 0 0 0 6px rgba(139, 86, 42, .12);
+    }
+
+    .note {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: #fff3a9;
+      color: #4a3510;
+      font-weight: 800;
+      box-shadow: 0 12px 20px rgba(86, 52, 9, .12);
+      transform: rotate(-1deg);
+    }
+
+    .note.small {
+      position: absolute;
+      right: 26px;
+      top: 22px;
+      max-width: 140px;
+      background: #ffd166;
+      font-size: 13px;
+      transform: rotate(4deg);
+    }
+
+    .project-pins {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .pin-card {
+      position: relative;
+      min-height: 88px;
+      display: grid;
+      place-items: center;
+      padding: 14px 10px;
+      border-radius: 12px;
+      background: #fff;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: #0a3c86;
+      box-shadow: 0 10px 24px rgba(11, 37, 69, .12);
+    }
+
+    .pin-card::before {
+      content: "";
+      position: absolute;
+      top: -6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--pin, #1463ff);
+      box-shadow: 0 2px 0 rgba(0, 0, 0, .1);
+    }
+
+    .desk {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 22px;
+      display: grid;
+      grid-template-columns: 120px 1fr 130px;
+      gap: 16px;
+      align-items: end;
+    }
+
+    .mug, .book, .plant {
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 36px rgba(11, 37, 69, .12);
+    }
+
+    .mug {
+      height: 96px;
+      display: grid;
+      place-items: center;
+      color: #0b61d6;
+      font-size: 34px;
+      font-weight: 800;
+    }
+
+    .book {
+      min-height: 112px;
+      padding: 20px;
+      background: linear-gradient(90deg, #fff 0 49%, #f8fbff 50% 100%);
+      font-weight: 800;
+      color: #405a76;
+      line-height: 1.6;
+    }
+
+    .plant {
+      height: 132px;
+      background:
+        radial-gradient(ellipse at 45% 28%, #4ccb7f 0 12%, transparent 13%),
+        radial-gradient(ellipse at 58% 42%, #2ec4b6 0 14%, transparent 15%),
+        radial-gradient(ellipse at 40% 56%, #58d68d 0 15%, transparent 16%),
+        linear-gradient(#fff 0 66%, #ffcf57 67% 100%);
+    }
+
+    .value-strip {
+      position: relative;
+      z-index: 4;
+      width: min(1180px, 90vw);
+      margin: -48px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      padding: 20px;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .value-item {
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 12px;
+    }
+
+    .icon-badge {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--badge, #eaf6ff);
+      color: var(--navy);
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .value-item strong { display: block; margin-bottom: 5px; color: #073983; }
+    .value-item span { color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+    .section {
+      padding: 86px 5vw;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -.035em;
+      margin-bottom: 0;
+    }
+
+    .section-intro {
+      max-width: 560px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .grid-4, .projects-grid, .partner-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .projects-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .partner-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 40px rgba(11, 37, 69, .08);
+    }
+
+    .card h3 { margin: 18px 0 10px; color: #093776; }
+    .card p { color: #526d8b; line-height: 1.7; font-size: 14px; margin-bottom: 0; }
+
+    .project-card {
+      padding: 12px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 50px rgba(11, 37, 69, .14);
+    }
+
+    .thumb {
+      height: 132px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(255,255,255,.7), transparent 24%),
+        linear-gradient(135deg, var(--a), var(--b));
+      color: #fff;
+      font-size: 44px;
+      font-weight: 900;
+    }
+
+    .project-card h3 {
+      margin: 14px 8px 6px;
+      font-size: 16px;
+    }
+
+    .project-card p {
+      margin: 0 8px 14px;
+      min-height: 70px;
+    }
+
+    .status {
+      display: inline-flex;
+      margin: 0 8px 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--status-bg);
+      color: var(--status-fg);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .process {
+      background:
+        radial-gradient(circle at 4% 100%, rgba(46, 196, 182, .18), transparent 13rem),
+        radial-gradient(circle at 96% 16%, rgba(255, 209, 102, .22), transparent 13rem),
+        #f8fcff;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+      align-items: start;
+      padding: 28px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, .78);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .step {
+      position: relative;
+      text-align: center;
+      padding: 12px;
+    }
+
+    .step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 43px;
+      right: -15px;
+      width: 28px;
+      border-top: 2px dashed #9eb5d4;
+    }
+
+    .step .icon-badge { margin: 0 auto 14px; }
+    .step b {
+      display: block;
+      color: #073983;
+      margin-bottom: 6px;
+    }
+    .step p { color: var(--muted); font-size: 12px; line-height: 1.55; margin: 0; }
+
+    .partner {
+      background:
+        radial-gradient(circle at left center, rgba(255, 141, 179, .22), transparent 16rem),
+        radial-gradient(circle at right bottom, rgba(76, 203, 127, .22), transparent 14rem),
+        #fff;
+    }
+
+    .partner-card {
+      min-height: 238px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(180deg, #fff, #f9fcff);
+    }
+
+    .partner-card .visual {
+      height: 90px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--a), var(--b));
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 36px;
+      font-weight: 900;
+    }
+
+    .text-link {
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .footer {
+      display: grid;
+      grid-template-columns: 1.2fr 2fr 1fr;
+      gap: 42px;
+      padding: 58px 5vw 28px;
+      color: #fff;
+      background: linear-gradient(135deg, #053b90 0%, #031f55 100%);
+    }
+
+    .footer p, .footer a { color: #dceaff; }
+    .footer a { display: block; text-decoration: none; margin: 10px 0; font-size: 14px; }
+    .footer h3 { margin: 0 0 14px; color: #fff; font-size: 15px; }
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .platform-tags {
+      display: grid;
+      gap: 10px;
+    }
+
+    .platform-tags a {
+      margin: 0;
+      padding: 12px 14px;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: 800;
+      background: var(--tag);
+    }
+
+    .copyright {
+      grid-column: 1 / -1;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, .18);
+      text-align: center;
+      color: #dceaff;
+      font-size: 13px;
+    }
+
+    @media (max-width: 1060px) {
+      .nav { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .studio { min-height: 540px; }
+      .value-strip, .grid-4, .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .step::after { display: none; }
+      .footer, .partner-grid { grid-template-columns: 1fr; }
+      .footer-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 680px) {
+      .site-header { align-items: flex-start; }
+      .brand { font-size: 20px; }
+      .site-header .button { display: none; }
+      .hero { padding-top: 54px; }
+      .hero-actions .button { width: 100%; }
+      .studio { padding: 12px; min-height: auto; }
+      .board { min-height: auto; }
+      .note.small { display: none; }
+      .project-pins { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .desk {
+        position: static;
+        grid-template-columns: 1fr;
+        margin-top: 16px;
+      }
+      .plant { display: none; }
+      .value-strip, .grid-4, .projects-grid, .steps, .footer-cols { grid-template-columns: 1fr; }
+      .section { padding: 66px 5vw; }
+      .section-head { display: block; }
+      .project-card p { min-height: auto; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">BrainwaveAI</div>
-    <nav class="nav">
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Brainwave AI home">
+      <span class="brand-mark">B</span>
+      <span>Brainwave AI</span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="active" href="#top">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="https://play.brainwaveai.my">Play</a>
+      <a href="https://learn.brainwaveai.my">Learn</a>
+      <a href="https://aiworksmart.my">AIWORKSMART</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
+    <a class="button primary" href="#contact">Partner With Us</a>
   </header>
 
-  <main>
-    <div class="hero">
-      <div>
-        <div class="tag">AI solutions for Malaysian businesses</div>
-        <h1>Build smarter systems for sales, support, and operations.</h1>
-        <p>BrainwaveAI helps businesses launch practical AI chatbots, automation workflows, and modern websites that save time and improve customer experience.</p>
-        <a class="btn" href="mailto:hello@brainwaveai.my">Start a project</a>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AI Dream Builder and Project Incubator</p>
+        <h1>We Build AI Dreams Into <span class="gradient-text">Real Businesses</span></h1>
+        <p>Brainwave AI creates, tests, and incubates practical AI projects, then works with operators, partners, and investors to turn them into real businesses.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Explore Projects</a>
+          <a class="button secondary" href="#contact">Work With Brainwave</a>
+        </div>
       </div>
-      <div class="panel">
-        <div class="card">Lead response <b>Instant AI follow-up</b></div>
-        <div class="card">Customer support <b>24/7 answers</b></div>
-        <div class="card">Website systems <b>Fast and conversion-ready</b></div>
-      </div>
-    </div>
 
-    <section id="services">
-      <h2>What we build</h2>
-      <div class="grid">
-        <div class="box"><h3>AI Chatbots</h3><p>Web and messaging assistants for FAQs, bookings, leads, and support.</p></div>
-        <div class="box"><h3>Automation</h3><p>Connect forms, emails, sheets, and workflows so routine work runs faster.</p></div>
-        <div class="box"><h3>Websites</h3><p>Modern business websites designed to explain, convert, and grow.</p></div>
-        <div class="box"><h3>AI Consulting</h3><p>Clear strategy for where AI can help your business now.</p></div>
+      <div class="studio" aria-label="Colorful dream studio project board">
+        <div class="board">
+          <div class="note">Ideas today. Businesses tomorrow.</div>
+          <div class="note small">People. Purpose. Impact.</div>
+          <div class="project-pins">
+            <div class="pin-card" style="--pin:#1463ff">AIWORKSMART</div>
+            <div class="pin-card" style="--pin:#ff6b6b">Brainwave Play</div>
+            <div class="pin-card" style="--pin:#2ec4b6">AI Education</div>
+            <div class="pin-card" style="--pin:#4ccb7f">Nourish7 Digital</div>
+            <div class="pin-card" style="--pin:#ff9f43">AI Pet Legacy</div>
+            <div class="pin-card" style="--pin:#ff6b6b">Smart Kitchen AI</div>
+            <div class="pin-card" style="--pin:#a78bfa">AI Influencer Network</div>
+            <div class="pin-card" style="--pin:#1463ff">Brainwave Lab</div>
+          </div>
+        </div>
+        <div class="desk">
+          <div class="mug">~</div>
+          <div class="book">Dream<br>Plan<br>Build<br>Launch</div>
+          <div class="plant" aria-hidden="true"></div>
+        </div>
       </div>
     </section>
 
-    <section id="process">
-      <h2>Simple launch process</h2>
-      <div class="grid">
-        <div class="box"><h3>01 Discover</h3><p>We understand your goals and current workflow.</p></div>
-        <div class="box"><h3>02 Design</h3><p>We plan the content, tools, and customer journey.</p></div>
-        <div class="box"><h3>03 Build</h3><p>We create and connect the website or AI system.</p></div>
-        <div class="box"><h3>04 Launch</h3><p>We deploy, test, and improve after launch.</p></div>
+    <section class="value-strip" aria-label="Brainwave AI value points">
+      <div class="value-item">
+        <span class="icon-badge" style="--badge:#ccefff">R</span>
+        <div><strong>Idea to Prototype</strong><span>We turn ideas into working prototypes fast.</span></div>
+      </div>
+      <div class="value-item">
+        <span class="icon-badge" style="--badge:#ffd8e7">B</span>
+        <div><strong>Built for Real Business</strong><span>Practical, relevant, and ready for the real world.</span></div>
+      </div>
+      <div class="value-item">
+        <span class="icon-badge" style="--badge:#dcf6b5">P</span>
+        <div><strong>Partner Ready</strong><span>Designed to collaborate with the right partners.</span></div>
+      </div>
+      <div class="value-item">
+        <span class="icon-badge" style="--badge:#eadfff">M</span>
+        <div><strong>Multi-Project Ecosystem</strong><span>A portfolio of ventures across real needs.</span></div>
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <h2>Ready to build BrainwaveAI?</h2>
-      <p>Email us at <b>hello@brainwaveai.my</b> to start your AI website or automation project.</p>
-      <a class="btn" href="mailto:hello@brainwaveai.my">Contact BrainwaveAI</a>
+    <section class="section" id="about">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">What Brainwave Does</p>
+          <h2>We move ideas from imagination to real-world growth.</h2>
+        </div>
+        <p class="section-intro">Brainwave AI is the mother company and project showroom for practical AI ventures built for people, operations, and business outcomes.</p>
+      </div>
+      <div class="grid-4">
+        <article class="card">
+          <span class="icon-badge" style="--badge:#fff0b8">I</span>
+          <h3>Build Ideas</h3>
+          <p>We identify real problems and transform ideas into business concepts that can create meaningful value.</p>
+        </article>
+        <article class="card">
+          <span class="icon-badge" style="--badge:#ffd8e7">D</span>
+          <h3>Create Mockups</h3>
+          <p>We design simple mockups and flows to visualize the experience, user journey, and business model.</p>
+        </article>
+        <article class="card">
+          <span class="icon-badge" style="--badge:#ccefff">L</span>
+          <h3>Launch Prototypes</h3>
+          <p>We build and test quickly with real users to validate ideas and product-market fit.</p>
+        </article>
+        <article class="card">
+          <span class="icon-badge" style="--badge:#eadfff">F</span>
+          <h3>Find Partners</h3>
+          <p>We connect with operators, experts, and investors to scale ideas into real businesses.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Active Project Showcase</p>
+          <h2>Incubated ventures across real needs.</h2>
+        </div>
+        <a class="text-link" href="#contact">View All Projects</a>
+      </div>
+      <div class="projects-grid">
+        <article class="card project-card" style="--a:#69d2ff;--b:#1463ff;--status-bg:#dff8e8;--status-fg:#16834a">
+          <div class="thumb">A</div><h3>AIWORKSMART</h3><p>Business SaaS for staff, operations, OCR, and training.</p><span class="status">Operating</span>
+        </article>
+        <article class="card project-card" style="--a:#ffd166;--b:#ff6b6b;--status-bg:#ffe9d3;--status-fg:#b85a00">
+          <div class="thumb">P</div><h3>Brainwave Play</h3><p>Games, rewards, traffic, and voucher experiences.</p><span class="status">Prototype</span>
+        </article>
+        <article class="card project-card" style="--a:#8be7ff;--b:#2ec4b6;--status-bg:#dff0ff;--status-fg:#0d5ca9">
+          <div class="thumb">E</div><h3>AI Education</h3><p>Courses, homework AI, and step-by-step learning.</p><span class="status">Testing</span>
+        </article>
+        <article class="card project-card" style="--a:#d7f9a8;--b:#4ccb7f;--status-bg:#dff8e8;--status-fg:#16834a">
+          <div class="thumb">N</div><h3>Nourish7 Digital</h3><p>Wellness content and bird nest growth support.</p><span class="status">Operating</span>
+        </article>
+        <article class="card project-card" style="--a:#ffe8a0;--b:#ff9f43;--status-bg:#fff3c4;--status-fg:#8b6500">
+          <div class="thumb">L</div><h3>AI Pet Legacy</h3><p>Emotional pet memory and companion concept.</p><span class="status">Idea Stage</span>
+        </article>
+        <article class="card project-card" style="--a:#ffc7a5;--b:#ff6b6b;--status-bg:#ffe9d3;--status-fg:#b85a00">
+          <div class="thumb">K</div><h3>Smart Kitchen AI</h3><p>Kitchen workflow, prep guidance, and team training.</p><span class="status">Prototype</span>
+        </article>
+        <article class="card project-card" style="--a:#ffb1d0;--b:#a78bfa;--status-bg:#e8f0ff;--status-fg:#3d55bd">
+          <div class="thumb">C</div><h3>AI Influencer Network</h3><p>AI characters and content traffic engine.</p><span class="status">Testing</span>
+        </article>
+        <article class="card project-card" style="--a:#a78bfa;--b:#1463ff;--status-bg:#eee3ff;--status-fg:#6732b8">
+          <div class="thumb">B</div><h3>Brainwave Lab</h3><p>Experimental ideas and rapid prototype testing.</p><span class="status">Looking for Partner</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section process">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">How Brainwave Works</p>
+          <h2>From first spark to operating business.</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="icon-badge" style="--badge:#fff0b8">1</span><b>Idea</b><p>We explore problems and spark ideas.</p></div>
+        <div class="step"><span class="icon-badge" style="--badge:#ffd8e7">2</span><b>Mockup</b><p>We design simple solutions and flows.</p></div>
+        <div class="step"><span class="icon-badge" style="--badge:#ccefff">3</span><b>Prototype</b><p>We build fast and make it real.</p></div>
+        <div class="step"><span class="icon-badge" style="--badge:#eadfff">4</span><b>Testing</b><p>We test with users and improve.</p></div>
+        <div class="step"><span class="icon-badge" style="--badge:#ffe0bf">5</span><b>Partner</b><p>We bring in the right partners to grow.</p></div>
+        <div class="step"><span class="icon-badge" style="--badge:#dcf6b5">6</span><b>Operate</b><p>We launch, operate, and scale.</p></div>
+      </div>
+    </section>
+
+    <section class="section partner" id="contact">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Partner With Brainwave</p>
+          <h2>Looking for <span class="gradient-text">Operators, Partners, and Investors</span></h2>
+        </div>
+        <p class="section-intro">Bring your expertise. We bring ideas, prototypes, and real-world opportunities.</p>
+      </div>
+      <div class="partner-grid">
+        <article class="card partner-card" style="--a:#1463ff;--b:#2ec4b6">
+          <div class="visual">O</div><div><h3>Operate a Project</h3><p>Take the lead and operate an existing project with our full support.</p></div><a class="text-link" href="mailto:hello@brainwaveai.my">Explore Opportunities</a>
+        </article>
+        <article class="card partner-card" style="--a:#ff9f43;--b:#ff6b6b">
+          <div class="visual">C</div><div><h3>Co-build With Brainwave</h3><p>Work side-by-side with our team to build and launch together.</p></div><a class="text-link" href="mailto:hello@brainwaveai.my">Let's Co-create</a>
+        </article>
+        <article class="card partner-card" style="--a:#4ccb7f;--b:#a78bfa">
+          <div class="visual">G</div><div><h3>Invest in Growth</h3><p>Invest in early-stage projects with strong potential and real-world impact.</p></div><a class="text-link" href="mailto:hello@brainwaveai.my">Learn More</a>
+        </article>
+      </div>
     </section>
   </main>
 
-  <footer>BrainwaveAI Malaysia · brainwaveai.my</footer>
+  <footer class="footer">
+    <div>
+      <a class="brand" href="#top" style="color:#fff"><span class="brand-mark">B</span><span>Brainwave AI</span></a>
+      <p>Building AI dreams into practical businesses.</p>
+    </div>
+    <div class="footer-cols">
+      <div><h3>Company</h3><a href="#about">About Us</a><a href="#about">Our Mission</a><a href="#about">Our Approach</a><a href="#contact">Careers</a></div>
+      <div><h3>Projects</h3><a href="#projects">All Projects</a><a href="#projects">Active Projects</a><a href="#contact">Partner With Us</a></div>
+      <div><h3>Resources</h3><a href="https://learn.brainwaveai.my">Learn</a><a href="#contact">Blog</a><a href="#contact">Events</a><a href="#contact">Newsroom</a></div>
+      <div><h3>Legal</h3><a href="#contact">Privacy Policy</a><a href="#contact">Terms of Use</a><a href="#contact">Disclaimer</a></div>
+    </div>
+    <div class="platform-tags">
+      <a href="https://play.brainwaveai.my" style="--tag:#ff4d8d">play.brainwaveai.my</a>
+      <a href="https://learn.brainwaveai.my" style="--tag:#22a7f0">learn.brainwaveai.my</a>
+      <a href="https://nourish7.brainwaveai.my" style="--tag:#4ccb7f">nourish7.brainwaveai.my</a>
+      <a href="https://aiworksmart.my" style="--tag:#1463ff">aiworksmart.my</a>
+    </div>
+    <div class="copyright">Copyright 2026 Brainwave AI. All rights reserved.</div>
+  </footer>
 </body>
 </html>
