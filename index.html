@@ -294,11 +294,16 @@
       line-height: 1.75;
     }
 
-    .projects {
+    .dreams {
       background:
         radial-gradient(circle at 4% 100%, rgba(107, 197, 255, .22), transparent 14rem),
         radial-gradient(circle at 88% 12%, rgba(255, 143, 189, .16), transparent 16rem),
-        #fff;
+        linear-gradient(180deg, #f7fcff 0%, #fff 52%, #fff8ec 100%);
+    }
+
+    .dreams-inner {
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .project-grid {
@@ -311,8 +316,8 @@
     .partner-card {
       position: relative;
       overflow: hidden;
-      min-height: 248px;
-      padding: 24px;
+      min-height: 100%;
+      padding: 0;
       border-radius: 22px;
       background: #fff;
       border: 1px solid var(--border);
@@ -326,29 +331,108 @@
       box-shadow: 0 24px 58px rgba(6, 50, 127, .14);
     }
 
-    .pin {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--pin);
-      box-shadow: 0 2px 0 rgba(0,0,0,.12);
+    .project-media {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+      background: #eaf6ff;
     }
 
-    .project-card .icon { margin-bottom: 16px; }
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform .25s ease;
+    }
+
+    .project-card:hover .project-media img {
+      transform: scale(1.03);
+    }
+
+    .project-body {
+      padding: 22px;
+    }
+
+    .pin {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 2;
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--bubble);
+      color: var(--ink);
+      border: 5px solid rgba(255, 255, 255, .88);
+      box-shadow: 0 10px 22px rgba(6, 50, 127, .18);
+    }
+
+    .pin svg {
+      width: 29px;
+      height: 29px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
     .project-card h3 { margin-bottom: 8px; color: var(--navy); font-size: 18px; }
     .project-card p { color: var(--muted); line-height: 1.65; font-size: 14px; }
 
     .status {
       display: inline-flex;
+      align-items: center;
+      gap: 8px;
       margin-top: 12px;
       padding: 8px 13px;
       border-radius: 999px;
       background: var(--status-bg);
       color: var(--status-fg);
       font-size: 12px;
+      font-weight: 800;
+    }
+
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--dot);
+    }
+
+    .view-project {
+      display: inline-flex;
+      margin-left: 10px;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 800;
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity .2s ease, transform .2s ease;
+      text-decoration: none;
+    }
+
+    .project-card:hover .view-project {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .dreams-cta {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px;
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid rgba(8, 36, 92, .08);
+      box-shadow: 0 16px 44px rgba(6, 50, 127, .09);
+      color: var(--deep);
       font-weight: 800;
     }
 
@@ -452,6 +536,9 @@
       .visual-board { grid-template-columns: 1fr; padding: 16px; }
       .hero-card.main { grid-column: auto; flex-direction: column; text-align: center; }
       .project-grid, .footer-cols { grid-template-columns: 1fr; }
+      .project-media { height: 200px; }
+      .dreams-cta { display: block; }
+      .dreams-cta .btn { width: 100%; margin-top: 16px; }
       .section { padding: 66px 5vw; }
       .section-head { display: block; }
     }
@@ -506,48 +593,63 @@
           <span class="icon" style="--bubble:#d8efff;--ink:#075cff"><svg><use href="#rocket"/></svg></span>
           <div><strong>Project Incubator</strong>Ideas become prototypes, partners, and real ventures.</div>
         </div>
-        <div class="hero-card"><span class="icon" style="--bubble:#ffe0eb;--ink:#e93586"><svg><use href="#game"/></svg></span>Brainwave Play</div>
-        <div class="hero-card"><span class="icon" style="--bubble:#dcf8f2;--ink:#079b8f"><svg><use href="#book"/></svg></span>AI Education</div>
-        <div class="hero-card"><span class="icon" style="--bubble:#e6f8c7;--ink:#198f30"><svg><use href="#leaf"/></svg></span>Nourish7 Digital</div>
+        <div class="hero-card"><span class="icon" style="--bubble:#ffe0eb;--ink:#e93586"><svg><use href="#game"/></svg></span>Brainwave Games</div>
+        <div class="hero-card"><span class="icon" style="--bubble:#dcf8f2;--ink:#079b8f"><svg><use href="#book"/></svg></span>AIStudy</div>
+        <div class="hero-card"><span class="icon" style="--bubble:#e6f8c7;--ink:#198f30"><svg><use href="#leaf"/></svg></span>Nourish7</div>
         <div class="hero-card"><span class="icon" style="--bubble:#efe4ff;--ink:#6e34d8"><svg><use href="#network"/></svg></span>Multi-Project Ecosystem</div>
         <div class="hero-card"><span class="icon" style="--bubble:#fff0bd;--ink:#d06b00"><svg><use href="#handshake"/></svg></span>Partner Ready</div>
       </div>
     </section>
 
-    <section class="section projects" id="projects">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Active Project Showcase</p>
-          <h2>Colorful AI ventures built around real needs.</h2>
+    <section class="section dreams" id="projects">
+      <div class="dreams-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">AI Dream Builder Projects</p>
+            <h2>Dreams in Progress</h2>
+          </div>
+          <p class="intro">Real ideas. Real prototypes. Real businesses in the making.</p>
         </div>
-        <p class="intro">Each project starts with a clear problem, a practical prototype, and a path toward operators, partners, customers, or investors.</p>
-      </div>
 
-      <div class="project-grid">
-        <article class="project-card" style="--pin:#075cff;--bubble:#d8efff;--ink:#075cff;--status-bg:#dff8e8;--status-fg:#16834a">
-          <span class="pin"></span><span class="icon"><svg><use href="#chart"/></svg></span><h3>AIWORKSMART</h3><p>Business SaaS for staff, operations, OCR, and training.</p><span class="status">Operating</span>
-        </article>
-        <article class="project-card" style="--pin:#e93586;--bubble:#ffe0eb;--ink:#e93586;--status-bg:#ffe7d4;--status-fg:#a84e00">
-          <span class="pin"></span><span class="icon"><svg><use href="#game"/></svg></span><h3>Brainwave Play</h3><p>Games, rewards, traffic, and voucher experiences.</p><span class="status">Prototype</span>
-        </article>
-        <article class="project-card" style="--pin:#16b6b0;--bubble:#dcf8f2;--ink:#079b8f;--status-bg:#dff0ff;--status-fg:#0a58b8">
-          <span class="pin"></span><span class="icon"><svg><use href="#book"/></svg></span><h3>AI Education</h3><p>Courses, homework AI, and step-by-step learning.</p><span class="status">Testing</span>
-        </article>
-        <article class="project-card" style="--pin:#60c936;--bubble:#e6f8c7;--ink:#198f30;--status-bg:#dff8e8;--status-fg:#16834a">
-          <span class="pin"></span><span class="icon"><svg><use href="#leaf"/></svg></span><h3>Nourish7 Digital</h3><p>Wellness content and bird nest growth support.</p><span class="status">Operating</span>
-        </article>
-        <article class="project-card" style="--pin:#ff8b2c;--bubble:#ffe4ca;--ink:#d76400;--status-bg:#fff1ba;--status-fg:#8b6500">
-          <span class="pin"></span><span class="icon"><svg><use href="#paw"/></svg></span><h3>AI Pet Legacy</h3><p>Emotional pet memory and companion concept.</p><span class="status">Idea Stage</span>
-        </article>
-        <article class="project-card" style="--pin:#ff5f2e;--bubble:#ffe4d7;--ink:#d14f00;--status-bg:#ffe7d4;--status-fg:#a84e00">
-          <span class="pin"></span><span class="icon"><svg><use href="#chef"/></svg></span><h3>Smart Kitchen AI</h3><p>Kitchen workflow, prep guidance, and team training.</p><span class="status">Prototype</span>
-        </article>
-        <article class="project-card" style="--pin:#8a4cf6;--bubble:#efe4ff;--ink:#6e34d8;--status-bg:#e9efff;--status-fg:#3a55bb">
-          <span class="pin"></span><span class="icon"><svg><use href="#people"/></svg></span><h3>AI Influencer Network</h3><p>AI characters and content traffic engine.</p><span class="status">Testing</span>
-        </article>
-        <article class="project-card" style="--pin:#1486ff;--bubble:#dff2ff;--ink:#075cff;--status-bg:#eee3ff;--status-fg:#6732b8">
-          <span class="pin"></span><span class="icon"><svg><use href="#flask"/></svg></span><h3>Brainwave Lab</h3><p>Experimental ideas and rapid prototype testing.</p><span class="status">Looking for Partner</span>
-        </article>
+        <div class="project-grid">
+          <article class="project-card" style="--bubble:#d8efff;--ink:#0B5CFF;--status-bg:#DCFCE7;--status-fg:#15803D;--dot:#22C55E">
+            <div class="project-media"><span class="pin"><svg><use href="#chart"/></svg></span><img src="images/projects/aiworksmart.png" alt="AIWORKSMART staff operations dashboard with team reviewing performance metrics"></div>
+            <div class="project-body"><h3>AIWORKSMART</h3><p>Smart staff operations, SOPs, training, task management, and performance insights.</p><span class="status">Operating</span><a class="view-project" href="#">View Project -></a></div>
+          </article>
+          <article class="project-card" style="--bubble:#ffe0eb;--ink:#FF4F8B;--status-bg:#FFEDD5;--status-fg:#C2410C;--dot:#F97316">
+            <div class="project-media"><span class="pin"><svg><use href="#game"/></svg></span><img src="images/projects/brainwave-games.png" alt="Brainwave Games mobile reward screen showing points and claim reward interface"></div>
+            <div class="project-body"><h3>Brainwave Games</h3><p>Mini games, lucky rewards, points, vouchers, and traffic campaigns that turn online attention into real action.</p><span class="status">Prototype</span><a class="view-project" href="#">View Project -></a></div>
+          </article>
+          <article class="project-card" style="--bubble:#dcf8f2;--ink:#22C7B8;--status-bg:#DBEAFE;--status-fg:#1D4ED8;--dot:#3B82F6">
+            <div class="project-media"><span class="pin"><svg><use href="#book"/></svg></span><img src="images/projects/aistudy.png" alt="AIStudy warm learning scene with parent guiding child on a tablet"></div>
+            <div class="project-body"><h3>AIStudy</h3><p>Homework AI, lesson support, quizzes, and step-by-step learning assistance.</p><span class="status">Testing</span><a class="view-project" href="#">View Project -></a></div>
+          </article>
+          <article class="project-card" style="--bubble:#e6f8c7;--ink:#34C759;--status-bg:#DCFCE7;--status-fg:#15803D;--dot:#22C55E">
+            <div class="project-media"><span class="pin"><svg><use href="#leaf"/></svg></span><img src="images/projects/nourish7.png" alt="Nourish7 premium bird nest wellness product lifestyle scene"></div>
+            <div class="project-body"><h3>Nourish7</h3><p>Wellness content, bird nest products, lifestyle guides, and customer support.</p><span class="status">Operating</span><a class="view-project" href="#">View Project -></a></div>
+          </article>
+          <article class="project-card" style="--bubble:#ffe4ca;--ink:#FF8A3D;--status-bg:#FEF3C7;--status-fg:#B45309;--dot:#FBBF24">
+            <div class="project-media"><span class="pin"><svg><use href="#paw"/></svg></span><img src="images/projects/ai-pet-legacy.png" alt="AI Pet Legacy warm home moment with owner hugging a golden retriever"></div>
+            <div class="project-body"><h3>AI Pet Legacy</h3><p>A warm memory companion for pet owners to preserve stories, photos, habits, voices, and emotional memories.</p><span class="status">Idea Stage</span><a class="view-project" href="#">View Project -></a></div>
+          </article>
+          <article class="project-card" style="--bubble:#ffe4d7;--ink:#FF8A3D;--status-bg:#FFEDD5;--status-fg:#C2410C;--dot:#F97316">
+            <div class="project-media"><span class="pin"><svg><use href="#chef"/></svg></span><img src="images/projects/smart-kitchen.png" alt="Smart Kitchen professional kitchen with chefs and digital order workflow screen"></div>
+            <div class="project-body"><h3>Smart Kitchen</h3><p>A kitchen operation system for order flow, KDS, prep timing, task assignment, plating, training, and tracking.</p><span class="status">Prototype</span><a class="view-project" href="#">View Project -></a></div>
+          </article>
+          <article class="project-card" style="--bubble:#efe4ff;--ink:#8B5CF6;--status-bg:#DBEAFE;--status-fg:#1D4ED8;--dot:#3B82F6">
+            <div class="project-media"><span class="pin"><svg><use href="#people"/></svg></span><img src="images/projects/aimate.png" alt="Aimate creator studio with ring light and social traffic growth visuals"></div>
+            <div class="project-body"><h3>Aimate</h3><p>A creative AI character and digital host network for content, traffic, campaigns, and audience connection.</p><span class="status">Testing</span><a class="view-project" href="#">View Project -></a></div>
+          </article>
+          <article class="project-card" style="--bubble:#dff2ff;--ink:#22C7B8;--status-bg:#F3E8FF;--status-fg:#7E22CE;--dot:#A855F7">
+            <div class="project-media"><span class="pin"><svg><use href="#flask"/></svg></span><img src="images/projects/dreamforge.png" alt="DreamForge creative team brainstorming prototypes with whiteboard and sticky notes"></div>
+            <div class="project-body"><h3>DreamForge</h3><p>A creative venture studio where new AI business ideas are shaped, tested, improved, and prepared for partners.</p><span class="status">Looking for Partner</span><a class="view-project" href="#">View Project -></a></div>
+          </article>
+        </div>
+
+        <div class="dreams-cta">
+          <span>From ideas to impact &mdash; these projects are building the future together.</span>
+          <a class="btn primary" href="#">View All Projects</a>
+        </div>
       </div>
     </section>
 
