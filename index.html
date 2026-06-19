@@ -500,33 +500,73 @@
       padding: 0;
     }
 
+    .wizard-progress {
+      display: grid;
+      gap: 10px;
+      padding: 18px 28px;
+      background: #f8fbff;
+      border-bottom: 1px solid #dce7f6;
+    }
+
+    .wizard-progress-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #0d2e66;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .wizard-track {
+      height: 10px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e4edfb;
+    }
+
+    .wizard-fill {
+      width: 12.5%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #075cff, #b24cff);
+      transition: width .25s ease;
+    }
+
+    .partner-form.submitted .wizard-progress,
+    .partner-form.submitted .wizard-nav,
     .partner-form.submitted .flow-card:not(.success-panel) {
       display: none;
     }
 
-    .partner-form.submitted .flow-grid {
-      grid-template-columns: 1fr;
-    }
-
     .flow-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr)) 280px;
-      align-items: stretch;
+      display: block;
+      min-height: 560px;
+      background:
+        radial-gradient(circle at 12% 80%, rgba(255, 143, 189, .1), transparent 18rem),
+        radial-gradient(circle at 86% 18%, rgba(7, 92, 255, .09), transparent 18rem),
+        #fff;
     }
 
     .flow-card {
       position: relative;
-      min-height: 300px;
-      padding: 20px 24px;
-      border-right: 1px solid #dce7f6;
-      border-bottom: 1px solid #dce7f6;
+      display: none;
+      max-width: 760px;
+      min-height: 560px;
+      margin: 0 auto;
+      padding: 52px 38px;
+      border-right: 0;
+      border-bottom: 0;
       background:
         radial-gradient(circle at 100% 0%, rgba(7, 92, 255, .06), transparent 10rem),
-        #fff;
+        transparent;
+    }
+
+    .flow-card.active {
+      display: block;
     }
 
     .flow-card.large {
-      min-height: 382px;
+      min-height: 560px;
     }
 
     .flow-card.review-card,
@@ -539,9 +579,9 @@
       grid-template-columns: 48px 1fr;
       gap: 14px;
       align-items: start;
-      margin: 0 0 6px;
+      margin: 0 0 10px;
       color: #071f55;
-      font-size: 20px;
+      font-size: clamp(26px, 3vw, 38px);
       line-height: 1.15;
       letter-spacing: 0;
     }
@@ -559,9 +599,9 @@
     }
 
     .flow-card p {
-      margin: 0 0 14px 62px;
+      margin: 0 0 26px 62px;
       color: #243d68;
-      font-size: 13px;
+      font-size: 16px;
       line-height: 1.45;
       font-weight: 600;
     }
@@ -569,7 +609,7 @@
     .option-list,
     .resource-grid {
       display: grid;
-      gap: 8px;
+      gap: 12px;
     }
 
     .resource-grid {
@@ -584,12 +624,12 @@
       gap: 10px;
       align-items: center;
       min-height: 42px;
-      padding: 8px 10px;
+      padding: 12px 14px;
       border: 1px solid #dce7f6;
-      border-radius: 8px;
+      border-radius: 12px;
       background: rgba(255, 255, 255, .88);
       color: #111c35;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 700;
       cursor: pointer;
     }
@@ -795,14 +835,30 @@
     }
 
     .flow-arrow {
-      position: absolute;
-      top: 50%;
-      right: -18px;
-      z-index: 3;
-      color: #092b67;
-      font-size: 32px;
-      font-weight: 800;
-      transform: translateY(-50%);
+      display: none;
+    }
+
+    .wizard-nav {
+      display: grid;
+      grid-template-columns: 150px 1fr 150px;
+      gap: 16px;
+      align-items: center;
+      padding: 18px 28px 24px;
+      border-top: 1px solid #dce7f6;
+      background: #f8fbff;
+    }
+
+    .wizard-nav .btn {
+      min-height: 48px;
+      border-radius: 10px;
+      box-shadow: none;
+    }
+
+    .wizard-nav-message {
+      text-align: center;
+      color: #506b91;
+      font-size: 13px;
+      font-weight: 700;
     }
 
     .flow-footer {
@@ -1058,9 +1114,16 @@
           </div>
         </div>
 
-        <form class="partner-form" id="partner-form-element">
+        <form class="partner-form" id="partner-form-element" novalidate>
+          <div class="wizard-progress" aria-label="Application progress">
+            <div class="wizard-progress-top">
+              <span id="wizard-step-label">Step 1 of 8</span>
+              <span id="wizard-step-title">What interests you?</span>
+            </div>
+            <div class="wizard-track"><div class="wizard-fill" id="wizard-fill"></div></div>
+          </div>
           <div class="flow-grid">
-            <div class="flow-card">
+            <div class="flow-card active" data-step="1">
               <h3><span class="step-number">1</span><span data-i18n="step1Title">What interests you?</span></h3>
               <p data-i18n="step1Text">Choose the project you are most interested in.</p>
               <div class="option-list">
@@ -1076,7 +1139,7 @@
               <span class="flow-arrow">-></span>
             </div>
 
-            <div class="flow-card">
+            <div class="flow-card" data-step="2">
               <h3><span class="step-number">2</span><span data-i18n="step2Title">How would you like to work with us?</span></h3>
               <p data-i18n="step2Text">Choose the type of partnership you are interested in.</p>
               <div class="option-list">
@@ -1090,7 +1153,7 @@
               <span class="flow-arrow">-></span>
             </div>
 
-            <div class="flow-card">
+            <div class="flow-card" data-step="3">
               <h3><span class="step-number">3</span><span data-i18n="step3Title">Your current business level</span></h3>
               <p data-i18n="step3Text">Select the option that best describes you.</p>
               <div class="option-list">
@@ -1106,7 +1169,7 @@
               <span class="flow-arrow">-></span>
             </div>
 
-            <div class="flow-card">
+            <div class="flow-card" data-step="4">
               <h3><span class="step-number">4</span><span data-i18n="step4Title">Tell us about yourself</span></h3>
               <p data-i18n="step4Text">Please provide your contact information.</p>
               <div class="contact-grid">
@@ -1120,7 +1183,7 @@
               </div>
             </div>
 
-            <div class="flow-card large">
+            <div class="flow-card large" data-step="5">
               <h3><span class="step-number">5</span><span data-i18n="step5Title">What resources can you bring?</span></h3>
               <p data-i18n="step5Text">Select all that apply.</p>
               <div class="resource-grid">
@@ -1136,7 +1199,7 @@
               <span class="flow-arrow">-></span>
             </div>
 
-            <div class="flow-card large">
+            <div class="flow-card large" data-step="6">
               <h3><span class="step-number">6</span><span data-i18n="step6Title">Investment / Budget Range</span></h3>
               <p data-i18n="step6Text">What is your estimated investment or budget range?</p>
               <div class="option-list">
@@ -1150,7 +1213,7 @@
               <span class="flow-arrow">-></span>
             </div>
 
-            <div class="flow-card large">
+            <div class="flow-card large" data-step="7">
               <h3><span class="step-number">7</span><span data-i18n="step7Title">Why are you interested?</span></h3>
               <p data-i18n="step7Text">Tell us more about your goals and what you want to achieve together.</p>
               <div class="message-box">
@@ -1160,7 +1223,7 @@
               <span class="flow-arrow">-></span>
             </div>
 
-            <div class="flow-card review-card large">
+            <div class="flow-card review-card large" data-step="8">
               <h3><span class="step-number">8</span><span data-i18n="step8Title">Review & Submit</span></h3>
               <p data-i18n="step8Text">Please review your information before submitting.</p>
               <div class="review-list">
@@ -1177,12 +1240,17 @@
 
             <div class="flow-card success-panel large" id="partner-success">
               <div>
-                <div class="success-check">✓</div>
+                <div class="success-check">&check;</div>
                 <h2 data-i18n="successThanks">Thank You!</h2>
                 <p data-i18n="successMessage">Thank you for your interest in partnering with Brainwave. Our team will review your application and contact you if there is a suitable collaboration opportunity.</p>
                 <a class="btn outline" href="#top" data-i18n="returnHome">Back to Home</a>
               </div>
             </div>
+          </div>
+          <div class="wizard-nav">
+            <button class="btn outline" type="button" id="wizard-back">Back</button>
+            <span class="wizard-nav-message" id="wizard-nav-message">Answer this step, then continue.</span>
+            <button class="btn primary" type="button" id="wizard-next">Next</button>
           </div>
         </form>
 
@@ -1450,6 +1518,14 @@
     const reviewBusiness = document.getElementById("review-business");
     const messageInput = document.getElementById("message");
     const messageCount = document.getElementById("message-count");
+    const wizardCards = Array.from(document.querySelectorAll(".flow-card[data-step]"));
+    const wizardBack = document.getElementById("wizard-back");
+    const wizardNext = document.getElementById("wizard-next");
+    const wizardStepLabel = document.getElementById("wizard-step-label");
+    const wizardStepTitle = document.getElementById("wizard-step-title");
+    const wizardFill = document.getElementById("wizard-fill");
+    const wizardNavMessage = document.getElementById("wizard-nav-message");
+    let currentWizardStep = 1;
 
     function selectedValue(name, fallback) {
       const selected = document.querySelector(`[name="${name}"]:checked`);
@@ -1462,9 +1538,68 @@
       if (reviewBusiness) reviewBusiness.textContent = selectedValue("business_type", "Choose business level");
     }
 
+    function showWizardStep(step) {
+      currentWizardStep = Math.max(1, Math.min(step, wizardCards.length));
+      wizardCards.forEach((card) => {
+        card.classList.toggle("active", Number(card.dataset.step) === currentWizardStep);
+      });
+      const activeCard = wizardCards[currentWizardStep - 1];
+      const title = activeCard?.querySelector("h3 span:last-child")?.textContent || "";
+      if (wizardStepLabel) wizardStepLabel.textContent = `Step ${currentWizardStep} of ${wizardCards.length}`;
+      if (wizardStepTitle) wizardStepTitle.textContent = title;
+      if (wizardFill) wizardFill.style.width = `${(currentWizardStep / wizardCards.length) * 100}%`;
+      if (wizardBack) wizardBack.disabled = currentWizardStep === 1;
+      if (wizardNext) wizardNext.style.visibility = currentWizardStep === wizardCards.length ? "hidden" : "visible";
+      if (wizardNavMessage) wizardNavMessage.textContent = currentWizardStep === wizardCards.length ? "Review your answers, confirm, then submit." : "Answer this step, then continue.";
+      updateReview();
+    }
+
+    function validateCurrentStep() {
+      const activeCard = wizardCards[currentWizardStep - 1];
+      if (!activeCard) return true;
+      const requiredGroups = new Set(
+        Array.from(activeCard.querySelectorAll('input[type="radio"][required]')).map((input) => input.name)
+      );
+      for (const name of requiredGroups) {
+        if (!activeCard.querySelector(`input[name="${name}"]:checked`)) {
+          if (wizardNavMessage) wizardNavMessage.textContent = "Please choose one option before continuing.";
+          return false;
+        }
+      }
+      const requiredFields = Array.from(activeCard.querySelectorAll("input[required], textarea[required], select[required]"))
+        .filter((field) => field.type !== "radio" && field.type !== "checkbox");
+      for (const field of requiredFields) {
+        if (!field.value.trim() || (field.type === "email" && !field.checkValidity())) {
+          field.focus();
+          if (wizardNavMessage) wizardNavMessage.textContent = "Please complete the required information first.";
+          return false;
+        }
+      }
+      const requiredChecks = Array.from(activeCard.querySelectorAll('input[type="checkbox"][required]'));
+      for (const field of requiredChecks) {
+        if (!field.checked) {
+          field.focus();
+          if (wizardNavMessage) wizardNavMessage.textContent = "Please confirm before submitting.";
+          return false;
+        }
+      }
+      if (wizardNavMessage) wizardNavMessage.textContent = "Looks good.";
+      return true;
+    }
+
     document.querySelectorAll('input[type="radio"]').forEach((input) => {
       input.addEventListener("change", updateReview);
     });
+
+    if (wizardBack) {
+      wizardBack.addEventListener("click", () => showWizardStep(currentWizardStep - 1));
+    }
+
+    if (wizardNext) {
+      wizardNext.addEventListener("click", () => {
+        if (validateCurrentStep()) showWizardStep(currentWizardStep + 1);
+      });
+    }
 
     if (messageInput && messageCount) {
       messageInput.addEventListener("input", () => {
@@ -1473,8 +1608,11 @@
     }
 
     if (partnerForm) {
+      showWizardStep(1);
       partnerForm.addEventListener("submit", async (event) => {
         event.preventDefault();
+        showWizardStep(wizardCards.length);
+        if (!validateCurrentStep()) return;
         const lang = localStorage.getItem("brainwaveLanguage") || "en";
         const dictionary = translations[lang] || translations.en;
         const formData = new FormData(partnerForm);
