@@ -421,6 +421,162 @@
       font-weight: 800;
     }
 
+    .partner-form-section {
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255, 79, 139, .16), transparent 15rem),
+        radial-gradient(circle at 90% 10%, rgba(34, 199, 184, .18), transparent 15rem),
+        #fff;
+    }
+
+    .form-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .form-intro,
+    .partner-form,
+    .success-panel {
+      border: 1px solid rgba(8, 36, 92, .08);
+      border-radius: 26px;
+      background: #fff;
+      box-shadow: 0 18px 54px rgba(6, 50, 127, .1);
+    }
+
+    .form-intro {
+      padding: 30px;
+      position: sticky;
+      top: 110px;
+    }
+
+    .form-intro img {
+      width: 58px;
+      height: 58px;
+      padding: 12px;
+      border-radius: 18px;
+      background: #eef5ff;
+      margin-bottom: 18px;
+    }
+
+    .form-intro h2 {
+      margin-bottom: 14px;
+    }
+
+    .form-intro p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .form-points {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .form-point {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      align-items: center;
+      color: var(--deep);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .form-point img {
+      width: 42px;
+      height: 42px;
+      padding: 9px;
+      margin: 0;
+      border-radius: 14px;
+    }
+
+    .partner-form {
+      padding: 26px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .form-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      border: 1px solid #dbe6f5;
+      border-radius: 14px;
+      padding: 13px 14px;
+      color: var(--deep);
+      background: #fbfdff;
+      font: inherit;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .form-field textarea {
+      min-height: 126px;
+      resize: vertical;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(11, 92, 255, .12);
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .form-message {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .success-panel {
+      display: none;
+      padding: 34px;
+      text-align: center;
+    }
+
+    .success-panel.visible {
+      display: block;
+    }
+
+    .success-panel img {
+      width: 72px;
+      height: 72px;
+      padding: 14px;
+      border-radius: 22px;
+      background: #dcfce7;
+      margin-bottom: 18px;
+    }
+
     .text-link {
       color: var(--blue);
       font-weight: 800;
@@ -486,6 +642,8 @@
       .hero { min-height: auto; }
       .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .project-media { height: 340px; }
+      .form-shell { grid-template-columns: 1fr; }
+      .form-intro { position: static; }
       .footer { grid-template-columns: 1fr; }
       .footer-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
@@ -502,6 +660,10 @@
       .project-media { height: 430px; }
       .dreams-cta { display: block; }
       .dreams-cta .btn { width: 100%; margin-top: 16px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .partner-form, .form-intro { padding: 20px; }
+      .form-actions { display: block; }
+      .form-actions .btn { width: 100%; margin-bottom: 12px; }
       .section { padding: 66px 5vw; }
       .section-head { display: block; }
     }
@@ -538,7 +700,7 @@
         <button type="button" class="active" data-lang="en">EN</button>
         <button type="button" data-lang="zh">中文</button>
       </div>
-      <a class="btn primary" href="mailto:hello@brainwaveai.my" data-i18n="partnerButton">Partner With Us</a>
+      <a class="btn primary" href="#partner-form" data-i18n="partnerButton">Partner With Us</a>
     </div>
   </header>
 
@@ -553,7 +715,7 @@
         <p data-i18n="heroText">Brainwave AI creates and incubates practical AI projects, then works with operators, partners, and investors to turn them into living businesses.</p>
         <div class="actions">
           <a class="btn primary" href="#projects" data-i18n="exploreButton">Explore Projects</a>
-          <a class="btn outline" href="#contact" data-i18n="workButton">Work With Brainwave</a>
+          <a class="btn outline" href="#partner-form" data-i18n="workButton">Work With Brainwave</a>
         </div>
       </div>
     </section>
@@ -605,7 +767,136 @@
 
         <div class="dreams-cta">
           <span data-i18n-html="ctaText">From ideas to impact &mdash; these projects are building the future together.</span>
-          <a class="btn primary" href="#" data-i18n="viewAll">View All Projects</a>
+          <a class="btn primary" href="#partner-form" data-i18n="viewAll">View All Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section partner-form-section" id="partner-form">
+      <div class="form-shell">
+        <div class="form-intro">
+          <img src="images/icons/email-notify.svg" alt="">
+          <p class="eyebrow" data-i18n="formEyebrow">Partner Application</p>
+          <h2 data-i18n="formTitle">Build with Brainwave</h2>
+          <p data-i18n="formIntro">Tell us how you want to work with Brainwave AI. Your application will go directly to our team for review.</p>
+          <div class="form-points">
+            <div class="form-point"><img src="images/icons/operator.svg" alt=""><span data-i18n="formPoint1">Operate or grow a project</span></div>
+            <div class="form-point"><img src="images/icons/merchant-partner.svg" alt=""><span data-i18n="formPoint2">Co-build with Brainwave</span></div>
+            <div class="form-point"><img src="images/icons/investor.svg" alt=""><span data-i18n="formPoint3">Invest in early growth</span></div>
+          </div>
+        </div>
+
+        <div>
+          <form class="partner-form" id="partner-form-element">
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="full_name" data-i18n="labelName">Full name</label>
+                <input id="full_name" name="full_name" type="text" required autocomplete="name">
+              </div>
+              <div class="form-field">
+                <label for="company_name" data-i18n="labelCompany">Company name</label>
+                <input id="company_name" name="company_name" type="text" autocomplete="organization">
+              </div>
+              <div class="form-field">
+                <label for="email" data-i18n="labelEmail">Email</label>
+                <input id="email" name="email" type="email" required autocomplete="email">
+              </div>
+              <div class="form-field">
+                <label for="phone" data-i18n="labelPhone">Phone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel">
+              </div>
+              <div class="form-field">
+                <label for="country" data-i18n="labelCountry">Country</label>
+                <input id="country" name="country" type="text" autocomplete="country-name">
+              </div>
+              <div class="form-field">
+                <label for="website" data-i18n="labelWebsite">Website or social link</label>
+                <input id="website" name="website" type="url" placeholder="https://">
+              </div>
+              <div class="form-field">
+                <label for="project_interest" data-i18n="labelProject">Project interest</label>
+                <select id="project_interest" name="project_interest" required>
+                  <option value="" data-i18n="selectProject">Select a project</option>
+                  <option>AIWORKSMART</option>
+                  <option>Brainwave Games</option>
+                  <option>AIStudy</option>
+                  <option>Nourish7</option>
+                  <option>AI Pet Legacy</option>
+                  <option>Smart Kitchen</option>
+                  <option>Aimate</option>
+                  <option>DreamForge</option>
+                  <option>General Partnership</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="partner_type" data-i18n="labelPartnerType">Partner type</label>
+                <select id="partner_type" name="partner_type" required>
+                  <option value="" data-i18n="selectPartner">Select partner type</option>
+                  <option>Operator</option>
+                  <option>Cooperation Partner</option>
+                  <option>Investor</option>
+                  <option>Merchant Partner</option>
+                  <option>Marketing Partner</option>
+                  <option>Technical Partner</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="business_type" data-i18n="labelBusinessType">Business type</label>
+                <select id="business_type" name="business_type">
+                  <option value="" data-i18n="selectBusiness">Select business type</option>
+                  <option>Restaurant/F&amp;B</option>
+                  <option>Retail</option>
+                  <option>Education</option>
+                  <option>Wellness</option>
+                  <option>Technology</option>
+                  <option>Creator/Media</option>
+                  <option>Investor/Capital</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="resources" data-i18n="labelResources">What can you bring?</label>
+                <select id="resources" name="resources">
+                  <option value="" data-i18n="selectResources">Select main resource</option>
+                  <option>Industry expertise</option>
+                  <option>Physical location</option>
+                  <option>Sales team</option>
+                  <option>Marketing team</option>
+                  <option>Technical team</option>
+                  <option>Capital</option>
+                  <option>Customer base</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label for="budget" data-i18n="labelBudget">Budget or investment range</label>
+                <select id="budget" name="budget">
+                  <option value="" data-i18n="selectBudget">Select range</option>
+                  <option>Below RM10,000</option>
+                  <option>RM10,000 - RM50,000</option>
+                  <option>RM50,000 - RM200,000</option>
+                  <option>RM200,000+</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label for="message" data-i18n="labelMessage">Tell us about the opportunity</label>
+                <textarea id="message" name="message" data-i18n-placeholder="messagePlaceholder" placeholder="Share your idea, project fit, location, team, or investment interest."></textarea>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="btn primary" type="submit" id="partner-submit" data-i18n="submitApplication">Submit Application</button>
+              <span class="form-message" id="partner-form-message" data-i18n="formNote">We will review your application and reply if there is a suitable collaboration opportunity.</span>
+            </div>
+          </form>
+
+          <div class="success-panel" id="partner-success">
+            <img src="images/icons/submit-success.svg" alt="">
+            <h2 data-i18n="successTitle">Application Submitted Successfully</h2>
+            <p data-i18n="successMessage">Thank you for your interest in partnering with Brainwave. Our team will review your application and contact you if there is a suitable collaboration opportunity.</p>
+            <a class="btn primary" href="#top" data-i18n="returnHome">Return to Home</a>
+          </div>
         </div>
       </div>
     </section>
@@ -677,7 +968,38 @@
         legal: "Legal",
         privacy: "Privacy Policy",
         terms: "Terms of Use",
-        disclaimer: "Disclaimer"
+        disclaimer: "Disclaimer",
+        formEyebrow: "Partner Application",
+        formTitle: "Build with Brainwave",
+        formIntro: "Tell us how you want to work with Brainwave AI. Your application will go directly to our team for review.",
+        formPoint1: "Operate or grow a project",
+        formPoint2: "Co-build with Brainwave",
+        formPoint3: "Invest in early growth",
+        labelName: "Full name",
+        labelCompany: "Company name",
+        labelEmail: "Email",
+        labelPhone: "Phone",
+        labelCountry: "Country",
+        labelWebsite: "Website or social link",
+        labelProject: "Project interest",
+        selectProject: "Select a project",
+        labelPartnerType: "Partner type",
+        selectPartner: "Select partner type",
+        labelBusinessType: "Business type",
+        selectBusiness: "Select business type",
+        labelResources: "What can you bring?",
+        selectResources: "Select main resource",
+        labelBudget: "Budget or investment range",
+        selectBudget: "Select range",
+        labelMessage: "Tell us about the opportunity",
+        messagePlaceholder: "Share your idea, project fit, location, team, or investment interest.",
+        submitApplication: "Submit Application",
+        formNote: "We will review your application and reply if there is a suitable collaboration opportunity.",
+        submitting: "Submitting your application...",
+        submitError: "Sorry, the application could not be submitted. Please try again.",
+        successTitle: "Application Submitted Successfully",
+        successMessage: "Thank you for your interest in partnering with Brainwave. Our team will review your application and contact you if there is a suitable collaboration opportunity.",
+        returnHome: "Return to Home"
       },
       zh: {
         navHome: "首页",
@@ -723,7 +1045,38 @@
         legal: "法律",
         privacy: "隐私政策",
         terms: "使用条款",
-        disclaimer: "免责声明"
+        disclaimer: "免责声明",
+        formEyebrow: "\u5408\u4f5c\u7533\u8bf7",
+        formTitle: "\u4e0e Brainwave \u4e00\u8d77\u5efa\u9020",
+        formIntro: "\u544a\u8bc9\u6211\u4eec\u4f60\u60f3\u5982\u4f55\u4e0e Brainwave AI \u5408\u4f5c\u3002\u4f60\u7684\u7533\u8bf7\u4f1a\u76f4\u63a5\u9001\u5230\u6211\u4eec\u56e2\u961f\u5ba1\u9605\u3002",
+        formPoint1: "\u8fd0\u8425\u6216\u53d1\u5c55\u4e00\u4e2a\u9879\u76ee",
+        formPoint2: "\u4e0e Brainwave \u5171\u540c\u5efa\u9020",
+        formPoint3: "\u6295\u8d44\u65e9\u671f\u589e\u957f",
+        labelName: "\u59d3\u540d",
+        labelCompany: "\u516c\u53f8\u540d\u79f0",
+        labelEmail: "\u7535\u5b50\u90ae\u4ef6",
+        labelPhone: "\u7535\u8bdd",
+        labelCountry: "\u56fd\u5bb6",
+        labelWebsite: "\u7f51\u7ad9\u6216\u793e\u4ea4\u94fe\u63a5",
+        labelProject: "\u611f\u5174\u8da3\u7684\u9879\u76ee",
+        selectProject: "\u9009\u62e9\u9879\u76ee",
+        labelPartnerType: "\u5408\u4f5c\u7c7b\u578b",
+        selectPartner: "\u9009\u62e9\u5408\u4f5c\u7c7b\u578b",
+        labelBusinessType: "\u4e1a\u52a1\u7c7b\u578b",
+        selectBusiness: "\u9009\u62e9\u4e1a\u52a1\u7c7b\u578b",
+        labelResources: "\u4f60\u80fd\u5e26\u6765\u4ec0\u4e48\uff1f",
+        selectResources: "\u9009\u62e9\u4e3b\u8981\u8d44\u6e90",
+        labelBudget: "\u9884\u7b97\u6216\u6295\u8d44\u8303\u56f4",
+        selectBudget: "\u9009\u62e9\u8303\u56f4",
+        labelMessage: "\u8bf7\u544a\u8bc9\u6211\u4eec\u8fd9\u4e2a\u673a\u4f1a",
+        messagePlaceholder: "\u5206\u4eab\u4f60\u7684\u60f3\u6cd5\u3001\u9879\u76ee\u5951\u5408\u5ea6\u3001\u5730\u70b9\u3001\u56e2\u961f\u6216\u6295\u8d44\u5174\u8da3\u3002",
+        submitApplication: "\u63d0\u4ea4\u7533\u8bf7",
+        formNote: "\u6211\u4eec\u4f1a\u5ba1\u9605\u4f60\u7684\u7533\u8bf7\uff0c\u5982\u679c\u6709\u5408\u9002\u7684\u5408\u4f5c\u673a\u4f1a\u4f1a\u518d\u8054\u7cfb\u4f60\u3002",
+        submitting: "\u6b63\u5728\u63d0\u4ea4\u7533\u8bf7...",
+        submitError: "\u62b1\u6b49\uff0c\u7533\u8bf7\u6682\u65f6\u65e0\u6cd5\u63d0\u4ea4\u3002\u8bf7\u518d\u8bd5\u4e00\u6b21\u3002",
+        successTitle: "\u7533\u8bf7\u5df2\u6210\u529f\u63d0\u4ea4",
+        successMessage: "\u611f\u8c22\u4f60\u6709\u5174\u8da3\u4e0e Brainwave \u5408\u4f5c\u3002\u6211\u4eec\u56e2\u961f\u4f1a\u5ba1\u9605\u4f60\u7684\u7533\u8bf7\uff0c\u5982\u679c\u6709\u5408\u9002\u7684\u5408\u4f5c\u673a\u4f1a\u4f1a\u8054\u7cfb\u4f60\u3002",
+        returnHome: "\u56de\u5230\u9996\u9875"
       }
     };
 
@@ -738,6 +1091,10 @@
         const key = element.getAttribute("data-i18n-html");
         if (dictionary[key]) element.innerHTML = dictionary[key];
       });
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+        const key = element.getAttribute("data-i18n-placeholder");
+        if (dictionary[key]) element.setAttribute("placeholder", dictionary[key]);
+      });
       document.querySelectorAll("[data-lang]").forEach((button) => {
         button.classList.toggle("active", button.getAttribute("data-lang") === lang);
       });
@@ -747,6 +1104,44 @@
     document.querySelectorAll("[data-lang]").forEach((button) => {
       button.addEventListener("click", () => setLanguage(button.getAttribute("data-lang")));
     });
+
+    const partnerForm = document.getElementById("partner-form-element");
+    const partnerMessage = document.getElementById("partner-form-message");
+    const partnerSubmit = document.getElementById("partner-submit");
+    const partnerSuccess = document.getElementById("partner-success");
+
+    if (partnerForm) {
+      partnerForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const lang = localStorage.getItem("brainwaveLanguage") || "en";
+        const dictionary = translations[lang] || translations.en;
+        const formData = new FormData(partnerForm);
+        const payload = Object.fromEntries(formData.entries());
+
+        partnerSubmit.disabled = true;
+        partnerSubmit.textContent = dictionary.submitting;
+        partnerMessage.textContent = dictionary.submitting;
+
+        try {
+          const response = await fetch("/api/partner-lead", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) throw new Error("Submission failed");
+
+          partnerForm.reset();
+          partnerForm.style.display = "none";
+          partnerSuccess.classList.add("visible");
+          partnerSuccess.scrollIntoView({ behavior: "smooth", block: "center" });
+        } catch (error) {
+          partnerMessage.textContent = dictionary.submitError;
+          partnerSubmit.disabled = false;
+          partnerSubmit.textContent = dictionary.submitApplication;
+        }
+      });
+    }
 
     setLanguage(localStorage.getItem("brainwaveLanguage") || "en");
   </script>
