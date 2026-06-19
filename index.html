@@ -721,7 +721,8 @@
 
     .review-list {
       display: grid;
-      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
       margin: 18px 0;
       padding: 16px;
       border-radius: 10px;
@@ -736,10 +737,18 @@
       grid-template-columns: 22px 1fr;
       gap: 10px;
       align-items: start;
+      min-width: 0;
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .review-item.full {
+      grid-column: 1 / -1;
     }
 
     .review-item::before {
-      content: "✓";
+      content: "\2713";
       display: grid;
       place-items: center;
       width: 18px;
@@ -755,6 +764,17 @@
       display: block;
       color: #0d2e66;
       font-size: 12px;
+    }
+
+    .review-item em {
+      display: block;
+      margin-top: 4px;
+      color: #15233f;
+      font-style: normal;
+      font-size: 13px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
     }
 
     .confirm-row {
@@ -984,11 +1004,88 @@
       .project-media { height: 430px; }
       .dreams-cta { display: block; }
       .dreams-cta .btn { width: 100%; margin-top: 16px; }
-      .partner-form-section { padding: 18px 10px 0; }
-      .flow-title h2 { font-size: 34px; }
-      .flow-title p { font-size: 16px; }
+      .partner-form-section { padding: 12px 8px 0; }
+      .partner-flow { border-radius: 8px; }
+      .flow-hero { min-height: auto; padding: 18px 14px; gap: 8px; }
+      .flow-title h2 { font-size: 30px; line-height: .98; }
+      .flow-title p { font-size: 15px; line-height: 1.35; }
+      .wizard-progress { padding: 14px; }
+      .wizard-progress-top { display: grid; gap: 4px; }
       .flow-grid, .resource-grid, .contact-grid, .flow-footer { grid-template-columns: 1fr; }
-      .flow-card { min-height: auto; padding: 18px; border-right: 0; }
+      .flow-grid { min-height: auto; }
+      .flow-card,
+      .flow-card.large {
+        min-height: auto;
+        padding: 22px 14px;
+        border-right: 0;
+      }
+      .flow-card h3 {
+        grid-template-columns: 42px 1fr;
+        gap: 10px;
+        font-size: 24px;
+      }
+      .step-number {
+        width: 34px;
+        height: 34px;
+      }
+      .flow-card p {
+        margin: 0 0 18px 52px;
+        font-size: 14px;
+      }
+      .flow-option,
+      .resource-option {
+        grid-template-columns: 32px 1fr 20px;
+        min-height: 52px;
+        padding: 11px;
+        font-size: 14px;
+      }
+      .contact-field {
+        min-height: 52px;
+        border-radius: 10px;
+      }
+      .contact-field input,
+      .message-box textarea {
+        font-size: 14px;
+      }
+      .message-box textarea {
+        min-height: 150px;
+      }
+      .review-list {
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 8px;
+      }
+      .review-item {
+        grid-template-columns: 20px 1fr;
+        padding: 9px;
+      }
+      .wizard-nav {
+        position: sticky;
+        bottom: 0;
+        z-index: 20;
+        grid-template-columns: 1fr 1fr;
+        padding: 12px;
+        gap: 10px;
+        box-shadow: 0 -12px 28px rgba(6, 50, 127, .12);
+      }
+      .wizard-nav-message {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        font-size: 12px;
+      }
+      .wizard-nav .btn {
+        grid-row: 2;
+        min-height: 46px;
+        padding: 0 12px;
+      }
+      .success-check {
+        width: 68px;
+        height: 68px;
+        font-size: 38px;
+      }
+      .success-panel h2 {
+        font-size: 26px;
+      }
       .flow-arrow { display: none; }
       .section { padding: 66px 5vw; }
       .section-head { display: block; }
@@ -1230,6 +1327,15 @@
                 <div class="review-item"><span><strong>Project Interest</strong><em id="review-project">Choose your project</em></span></div>
                 <div class="review-item"><span><strong>Partner Type</strong><em id="review-partner">Choose partnership type</em></span></div>
                 <div class="review-item"><span><strong>Business Level</strong><em id="review-business">Choose business level</em></span></div>
+                <div class="review-item"><span><strong>Full Name</strong><em id="review-name">Not provided</em></span></div>
+                <div class="review-item"><span><strong>Company / Brand</strong><em id="review-company">Not provided</em></span></div>
+                <div class="review-item"><span><strong>WhatsApp</strong><em id="review-phone">Not provided</em></span></div>
+                <div class="review-item"><span><strong>Email</strong><em id="review-email">Not provided</em></span></div>
+                <div class="review-item"><span><strong>Country / City</strong><em id="review-location">Not provided</em></span></div>
+                <div class="review-item"><span><strong>Website / Social</strong><em id="review-website">Not provided</em></span></div>
+                <div class="review-item"><span><strong>Resources</strong><em id="review-resources">Not selected</em></span></div>
+                <div class="review-item"><span><strong>Budget</strong><em id="review-budget">Not selected</em></span></div>
+                <div class="review-item full"><span><strong>Reason / Message</strong><em id="review-message">Not provided</em></span></div>
               </div>
               <label class="confirm-row"><input type="checkbox" required><span data-i18n="confirmText">I confirm that the information provided is true and I agree to be contacted by Brainwave.</span></label>
               <div class="form-actions">
@@ -1516,6 +1622,15 @@
     const reviewProject = document.getElementById("review-project");
     const reviewPartner = document.getElementById("review-partner");
     const reviewBusiness = document.getElementById("review-business");
+    const reviewName = document.getElementById("review-name");
+    const reviewCompany = document.getElementById("review-company");
+    const reviewPhone = document.getElementById("review-phone");
+    const reviewEmail = document.getElementById("review-email");
+    const reviewLocation = document.getElementById("review-location");
+    const reviewWebsite = document.getElementById("review-website");
+    const reviewResources = document.getElementById("review-resources");
+    const reviewBudget = document.getElementById("review-budget");
+    const reviewMessage = document.getElementById("review-message");
     const messageInput = document.getElementById("message");
     const messageCount = document.getElementById("message-count");
     const wizardCards = Array.from(document.querySelectorAll(".flow-card[data-step]"));
@@ -1532,10 +1647,34 @@
       return selected ? selected.value : fallback;
     }
 
+    function fieldValue(name, fallback = "Not provided") {
+      const field = partnerForm?.elements[name];
+      const value = field && "value" in field ? field.value.trim() : "";
+      return value || fallback;
+    }
+
+    function checkedValues(name, fallback = "Not selected") {
+      const values = Array.from(document.querySelectorAll(`[name="${name}"]:checked`)).map((input) => input.value);
+      return values.length ? values.join(", ") : fallback;
+    }
+
     function updateReview() {
       if (reviewProject) reviewProject.textContent = selectedValue("project_interest", "Choose your project");
       if (reviewPartner) reviewPartner.textContent = selectedValue("partner_type", "Choose partnership type");
       if (reviewBusiness) reviewBusiness.textContent = selectedValue("business_type", "Choose business level");
+      if (reviewName) reviewName.textContent = fieldValue("full_name");
+      if (reviewCompany) reviewCompany.textContent = fieldValue("company_name");
+      if (reviewPhone) reviewPhone.textContent = fieldValue("phone");
+      if (reviewEmail) reviewEmail.textContent = fieldValue("email");
+      if (reviewLocation) {
+        const country = fieldValue("country", "");
+        const city = fieldValue("city", "");
+        reviewLocation.textContent = [country, city].filter(Boolean).join(" / ") || "Not provided";
+      }
+      if (reviewWebsite) reviewWebsite.textContent = fieldValue("website");
+      if (reviewResources) reviewResources.textContent = checkedValues("resources");
+      if (reviewBudget) reviewBudget.textContent = selectedValue("budget", "Not selected");
+      if (reviewMessage) reviewMessage.textContent = fieldValue("message");
     }
 
     function showWizardStep(step) {
@@ -1588,6 +1727,11 @@
     }
 
     document.querySelectorAll('input[type="radio"]').forEach((input) => {
+      input.addEventListener("change", updateReview);
+    });
+
+    document.querySelectorAll('input[type="checkbox"], input[type="text"], input[type="tel"], input[type="email"], input[type="url"], textarea').forEach((input) => {
+      input.addEventListener("input", updateReview);
       input.addEventListener("change", updateReview);
     });
 
