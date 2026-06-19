@@ -68,14 +68,11 @@
     }
 
     .wave-logo {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 64% 39%, #fff 0 13%, transparent 14%),
-        radial-gradient(circle at 35% 62%, #fff 0 20%, transparent 21%),
-        conic-gradient(from 210deg, #064bb7, #0b68ff, #16b6b0, #064bb7);
-      box-shadow: 0 10px 26px rgba(7, 92, 255, .22);
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      border-radius: 14px;
+      background: #fff;
     }
 
     .nav {
@@ -123,13 +120,10 @@
 
     .hero {
       position: relative;
-      display: grid;
-      grid-template-columns: minmax(0, .95fr) minmax(430px, 1.05fr);
-      gap: 46px;
-      align-items: center;
-      min-height: 720px;
-      padding: 74px 5vw 86px;
+      min-height: 540px;
+      padding: 92px 5vw 96px;
       overflow: hidden;
+      text-align: center;
       background:
         radial-gradient(circle at left bottom, rgba(255, 95, 126, .22), transparent 15rem),
         radial-gradient(circle at 70% 18%, rgba(255, 215, 94, .24), transparent 14rem),
@@ -171,6 +165,8 @@
     h1, h2, h3, p { margin-top: 0; }
     h1 {
       max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
       margin-bottom: 24px;
       font-size: clamp(44px, 6vw, 82px);
       line-height: .98;
@@ -187,6 +183,8 @@
 
     .hero p:not(.eyebrow) {
       max-width: 625px;
+      margin-left: auto;
+      margin-right: auto;
       color: #35557e;
       font-size: 18px;
       line-height: 1.8;
@@ -194,55 +192,10 @@
 
     .actions {
       display: flex;
+      justify-content: center;
       flex-wrap: wrap;
       gap: 14px;
       margin-top: 34px;
-    }
-
-    .visual-board {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      padding: 24px;
-      border-radius: 32px;
-      background: rgba(255, 255, 255, .76);
-      border: 1px solid rgba(255,255,255,.9);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card {
-      min-height: 144px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 16px;
-      border-radius: 20px;
-      background: #fff;
-      border: 1px solid var(--border);
-      box-shadow: 0 12px 30px rgba(6, 50, 127, .09);
-      text-align: center;
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--navy);
-    }
-
-    .hero-card.main {
-      grid-column: span 2;
-      flex-direction: row;
-      justify-content: flex-start;
-      text-align: left;
-      padding: 22px;
-      background: linear-gradient(135deg, #fff, #eff8ff);
-    }
-
-    .hero-card.main strong {
-      display: block;
-      font-size: 22px;
-      color: var(--deep);
-      margin-bottom: 6px;
     }
 
     .icon {
@@ -312,8 +265,7 @@
       gap: 18px;
     }
 
-    .project-card,
-    .partner-card {
+    .project-card {
       position: relative;
       overflow: hidden;
       min-height: 100%;
@@ -325,15 +277,14 @@
       transition: transform .2s ease, box-shadow .2s ease;
     }
 
-    .project-card:hover,
-    .partner-card:hover {
+    .project-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 24px 58px rgba(6, 50, 127, .14);
     }
 
     .project-media {
       position: relative;
-      height: 180px;
+      height: 360px;
       overflow: hidden;
       background: #eaf6ff;
     }
@@ -436,29 +387,6 @@
       font-weight: 800;
     }
 
-    .partner {
-      background:
-        radial-gradient(circle at left center, rgba(255, 95, 126, .18), transparent 16rem),
-        radial-gradient(circle at right bottom, rgba(96, 201, 54, .22), transparent 15rem),
-        linear-gradient(180deg, #f7fcff, #fff);
-    }
-
-    .partner-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .partner-card {
-      min-height: 290px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .partner-card h3 { margin: 18px 0 10px; color: var(--navy); }
-    .partner-card p { color: var(--muted); line-height: 1.7; }
-
     .text-link {
       color: var(--blue);
       font-weight: 800;
@@ -521,22 +449,21 @@
 
     @media (max-width: 1060px) {
       .nav { display: none; }
-      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero { min-height: auto; }
       .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .partner-grid, .footer { grid-template-columns: 1fr; }
+      .project-media { height: 340px; }
+      .footer { grid-template-columns: 1fr; }
       .footer-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 680px) {
       .header .btn { display: none; }
       .brand { font-size: 21px; }
-      .wave-logo { width: 42px; height: 42px; }
+      .wave-logo { width: 48px; height: 48px; }
       .hero { padding-top: 54px; }
       .actions .btn { width: 100%; }
-      .visual-board { grid-template-columns: 1fr; padding: 16px; }
-      .hero-card.main { grid-column: auto; flex-direction: column; text-align: center; }
       .project-grid, .footer-cols { grid-template-columns: 1fr; }
-      .project-media { height: 200px; }
+      .project-media { height: 430px; }
       .dreams-cta { display: block; }
       .dreams-cta .btn { width: 100%; margin-top: 16px; }
       .section { padding: 66px 5vw; }
@@ -561,7 +488,7 @@
   </svg>
 
   <header class="header">
-    <a class="brand" href="#top"><span class="wave-logo" aria-hidden="true"></span><span>Brainwave AI</span></a>
+    <a class="brand" href="#top"><img class="wave-logo" src="images/brand/brainwave-logo.png" alt="Brainwave logo"><span>Brainwave AI</span></a>
     <nav class="nav" aria-label="Main navigation">
       <a class="active" href="#top">Home</a>
       <a href="#projects">Projects</a>
@@ -570,7 +497,7 @@
       <a href="https://aiworksmart.my">AIWORKSMART</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn primary" href="#contact">Partner With Us</a>
+    <a class="btn primary" href="mailto:hello@brainwaveai.my">Partner With Us</a>
   </header>
 
   <main id="top">
@@ -586,18 +513,6 @@
           <a class="btn primary" href="#projects">Explore Projects</a>
           <a class="btn outline" href="#contact">Work With Brainwave</a>
         </div>
-      </div>
-
-      <div class="visual-board" aria-label="Brainwave AI icon project board">
-        <div class="hero-card main">
-          <span class="icon" style="--bubble:#d8efff;--ink:#075cff"><svg><use href="#rocket"/></svg></span>
-          <div><strong>Project Incubator</strong>Ideas become prototypes, partners, and real ventures.</div>
-        </div>
-        <div class="hero-card"><span class="icon" style="--bubble:#ffe0eb;--ink:#e93586"><svg><use href="#game"/></svg></span>Brainwave Games</div>
-        <div class="hero-card"><span class="icon" style="--bubble:#dcf8f2;--ink:#079b8f"><svg><use href="#book"/></svg></span>AIStudy</div>
-        <div class="hero-card"><span class="icon" style="--bubble:#e6f8c7;--ink:#198f30"><svg><use href="#leaf"/></svg></span>Nourish7</div>
-        <div class="hero-card"><span class="icon" style="--bubble:#efe4ff;--ink:#6e34d8"><svg><use href="#network"/></svg></span>Multi-Project Ecosystem</div>
-        <div class="hero-card"><span class="icon" style="--bubble:#fff0bd;--ink:#d06b00"><svg><use href="#handshake"/></svg></span>Partner Ready</div>
       </div>
     </section>
 
@@ -653,38 +568,11 @@
       </div>
     </section>
 
-    <section class="section partner" id="contact">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Partner With Brainwave</p>
-          <h2>Looking for <span class="gradient">Operators, Partners, and Investors</span></h2>
-        </div>
-        <p class="intro">Bring your expertise. We bring ideas, prototypes, and real-world opportunities.</p>
-      </div>
-
-      <div class="partner-grid">
-        <article class="partner-card" style="--bubble:#d8efff;--ink:#075cff">
-          <span class="icon"><svg><use href="#building"/></svg></span>
-          <div><h3>Operate a Project</h3><p>Take the lead and operate an existing project with our support, tools, and project direction.</p></div>
-          <a class="text-link" href="mailto:hello@brainwaveai.my">Explore Opportunities</a>
-        </article>
-        <article class="partner-card" style="--bubble:#fff0bd;--ink:#d06b00">
-          <span class="icon"><svg><use href="#handshake"/></svg></span>
-          <div><h3>Co-build With Brainwave</h3><p>Work side-by-side with our team to shape, test, launch, and grow a new AI venture.</p></div>
-          <a class="text-link" href="mailto:hello@brainwaveai.my">Let's Co-create</a>
-        </article>
-        <article class="partner-card" style="--bubble:#e6f8c7;--ink:#198f30">
-          <span class="icon"><svg><use href="#chart"/></svg></span>
-          <div><h3>Invest in Growth</h3><p>Support early-stage projects with practical business value and clear incubation momentum.</p></div>
-          <a class="text-link" href="mailto:hello@brainwaveai.my">Learn More</a>
-        </article>
-      </div>
-    </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" id="contact">
     <div>
-      <a class="brand" href="#top"><span class="wave-logo" aria-hidden="true"></span><span>Brainwave AI</span></a>
+      <a class="brand" href="#top"><img class="wave-logo" src="images/brand/brainwave-logo.png" alt="Brainwave logo"><span>Brainwave AI</span></a>
       <p>Warm, cheerful, purposeful. Building AI dreams into practical businesses.</p>
     </div>
     <div class="footer-cols">
