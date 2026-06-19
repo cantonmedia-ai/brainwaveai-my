@@ -422,159 +422,423 @@
     }
 
     .partner-form-section {
+      padding: 38px 18px 0;
       background:
-        radial-gradient(circle at 10% 20%, rgba(255, 79, 139, .16), transparent 15rem),
-        radial-gradient(circle at 90% 10%, rgba(34, 199, 184, .18), transparent 15rem),
-        #fff;
+        radial-gradient(circle at 8% 10%, rgba(255, 95, 126, .18), transparent 17rem),
+        radial-gradient(circle at 92% 8%, rgba(7, 92, 255, .2), transparent 18rem),
+        linear-gradient(135deg, #041d55 0%, #052e7f 44%, #06194c 100%);
     }
 
-    .form-shell {
-      max-width: 1120px;
+    .partner-flow {
+      max-width: 1680px;
       margin: 0 auto;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 1px solid rgba(216, 231, 255, .78);
+      background: linear-gradient(180deg, #fbfdff 0%, #fff 100%);
+      box-shadow: 0 26px 90px rgba(0, 16, 60, .34);
+    }
+
+    .flow-hero {
+      position: relative;
+      min-height: 168px;
       display: grid;
-      grid-template-columns: .82fr 1.18fr;
-      gap: 28px;
-      align-items: start;
-    }
-
-    .form-intro,
-    .partner-form,
-    .success-panel {
-      border: 1px solid rgba(8, 36, 92, .08);
-      border-radius: 26px;
-      background: #fff;
-      box-shadow: 0 18px 54px rgba(6, 50, 127, .1);
-    }
-
-    .form-intro {
-      padding: 30px;
-      position: sticky;
-      top: 110px;
-    }
-
-    .form-intro img {
-      width: 58px;
-      height: 58px;
-      padding: 12px;
-      border-radius: 18px;
-      background: #eef5ff;
-      margin-bottom: 18px;
-    }
-
-    .form-intro h2 {
-      margin-bottom: 14px;
-    }
-
-    .form-intro p {
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .form-points {
-      display: grid;
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .form-point {
-      display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 12px;
+      grid-template-columns: 250px 1fr 250px;
       align-items: center;
-      color: var(--deep);
+      gap: 22px;
+      padding: 18px 34px;
+      background:
+        radial-gradient(circle at 14% 15%, rgba(138, 76, 246, .14), transparent 15rem),
+        radial-gradient(circle at 84% 22%, rgba(7, 92, 255, .14), transparent 18rem),
+        linear-gradient(180deg, #f8fbff, #fff);
+      border-bottom: 1px solid #dce7f6;
+      text-align: center;
+    }
+
+    .flow-badge,
+    .flow-orbit {
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+      color: #2d54ff;
       font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .flow-badge img,
+    .flow-orbit img {
+      width: 86px;
+      height: 86px;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 20px rgba(7, 92, 255, .22));
+    }
+
+    .flow-title h2 {
+      font-size: clamp(38px, 5vw, 70px);
+      line-height: .9;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .flow-title span {
+      display: block;
+      background: linear-gradient(90deg, #2878ff, #8a4cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .flow-title p {
+      margin: 10px 0 0;
+      color: #112d66;
+      font-size: clamp(18px, 2vw, 26px);
       font-weight: 800;
     }
 
-    .form-point img {
-      width: 42px;
-      height: 42px;
-      padding: 9px;
-      margin: 0;
-      border-radius: 14px;
-    }
-
     .partner-form {
-      padding: 26px;
+      padding: 0;
     }
 
-    .form-grid {
+    .partner-form.submitted .flow-card:not(.success-panel) {
+      display: none;
+    }
+
+    .partner-form.submitted .flow-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .flow-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) 280px;
+      align-items: stretch;
     }
 
-    .form-field {
+    .flow-card {
+      position: relative;
+      min-height: 300px;
+      padding: 20px 24px;
+      border-right: 1px solid #dce7f6;
+      border-bottom: 1px solid #dce7f6;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(7, 92, 255, .06), transparent 10rem),
+        #fff;
+    }
+
+    .flow-card.large {
+      min-height: 382px;
+    }
+
+    .flow-card.review-card,
+    .flow-card.success-panel {
+      background: linear-gradient(150deg, #f7fff9 0%, #fff 58%, #f1f8ff 100%);
+    }
+
+    .flow-card h3 {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 14px;
+      align-items: start;
+      margin: 0 0 6px;
+      color: #071f55;
+      font-size: 20px;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, #041d55, #0d3f9e);
+      box-shadow: 0 8px 18px rgba(4, 29, 85, .28);
+      font-weight: 800;
+    }
+
+    .flow-card p {
+      margin: 0 0 14px 62px;
+      color: #243d68;
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 600;
+    }
+
+    .option-list,
+    .resource-grid {
       display: grid;
       gap: 8px;
     }
 
-    .form-field.full {
+    .resource-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .flow-option,
+    .resource-option {
+      position: relative;
+      display: grid;
+      grid-template-columns: 34px 1fr 18px;
+      gap: 10px;
+      align-items: center;
+      min-height: 42px;
+      padding: 8px 10px;
+      border: 1px solid #dce7f6;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .88);
+      color: #111c35;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .resource-option {
+      grid-template-columns: 34px 1fr 18px;
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    .flow-option:hover,
+    .resource-option:hover,
+    .flow-option:has(input:checked),
+    .resource-option:has(input:checked) {
+      border-color: #7aa7ff;
+      background: #f4f8ff;
+      box-shadow: 0 10px 22px rgba(7, 92, 255, .08);
+    }
+
+    .flow-option img,
+    .resource-option img,
+    .contact-icon {
+      width: 28px;
+      height: 28px;
+      padding: 5px;
+      border-radius: 7px;
+      background: var(--option-bg, #eef5ff);
+    }
+
+    .flow-option input,
+    .resource-option input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--blue);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .contact-field {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      min-height: 42px;
+      border: 1px solid #dce7f6;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .contact-field.full {
       grid-column: 1 / -1;
     }
 
-    .form-field label {
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--navy);
-    }
-
-    .form-field input,
-    .form-field select,
-    .form-field textarea {
+    .contact-field input,
+    .contact-field select,
+    .message-box textarea {
       width: 100%;
-      border: 1px solid #dbe6f5;
-      border-radius: 14px;
-      padding: 13px 14px;
-      color: var(--deep);
-      background: #fbfdff;
+      border: 0;
+      outline: 0;
+      color: #122a5a;
+      background: transparent;
       font: inherit;
-      font-size: 14px;
-      outline: none;
+      font-size: 13px;
+      font-weight: 700;
     }
 
-    .form-field textarea {
-      min-height: 126px;
+    .message-box textarea {
+      min-height: 188px;
+      padding: 14px;
+      border: 1px solid #dce7f6;
+      border-radius: 8px;
       resize: vertical;
+      background: #fff;
+      line-height: 1.55;
     }
 
-    .form-field input:focus,
-    .form-field select:focus,
-    .form-field textarea:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 4px rgba(11, 92, 255, .12);
+    .char-count {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      color: #687b9c;
+      font-size: 12px;
+    }
+
+    .review-list {
+      display: grid;
+      gap: 12px;
+      margin: 18px 0;
+      padding: 16px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #effdf4, #f8fffb);
+      border: 1px solid #d4f5df;
+      color: #0f3b2a;
+      font-size: 12px;
+    }
+
+    .review-item {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .review-item::before {
+      content: "✓";
+      display: grid;
+      place-items: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      color: #fff;
+      background: #20b86b;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .review-item strong {
+      display: block;
+      color: #0d2e66;
+      font-size: 12px;
+    }
+
+    .confirm-row {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 9px;
+      align-items: start;
+      margin-bottom: 14px;
+      color: #3b5072;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .confirm-row input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--blue);
     }
 
     .form-actions {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-top: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .form-actions .btn {
+      width: 100%;
+      min-height: 46px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #064bb7, #b24cff);
+      border: 0;
     }
 
     .form-message {
+      min-height: 18px;
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
+      font-size: 12px;
+      line-height: 1.4;
     }
 
     .success-panel {
       display: none;
-      padding: 34px;
+      place-items: center;
       text-align: center;
+      border-right: 0;
+      background: linear-gradient(135deg, #ecfff4 0%, #f6fffb 100%);
     }
 
     .success-panel.visible {
-      display: block;
+      display: grid;
     }
 
-    .success-panel img {
-      width: 72px;
-      height: 72px;
-      padding: 14px;
-      border-radius: 22px;
-      background: #dcfce7;
+    .success-check {
+      display: grid;
+      place-items: center;
+      width: 82px;
+      height: 82px;
       margin-bottom: 18px;
+      border-radius: 50%;
+      color: #fff;
+      background: linear-gradient(135deg, #1fca72, #10a95c);
+      box-shadow: 0 18px 32px rgba(22, 169, 94, .24);
+      font-size: 46px;
+      font-weight: 800;
+    }
+
+    .success-panel h2 {
+      margin-bottom: 10px;
+      color: #168650;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+
+    .success-panel p {
+      margin: 0 0 18px;
+      color: #35557e;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .flow-arrow {
+      position: absolute;
+      top: 50%;
+      right: -18px;
+      z-index: 3;
+      color: #092b67;
+      font-size: 32px;
+      font-weight: 800;
+      transform: translateY(-50%);
+    }
+
+    .flow-footer {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 28px;
+      padding: 24px 8vw;
+      color: #fff;
+      background: linear-gradient(135deg, #06286f, #031742);
+    }
+
+    .flow-footer-item {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .flow-footer-item img {
+      width: 48px;
+      height: 48px;
+      filter: brightness(0) invert(1);
+      opacity: .94;
+    }
+
+    .flow-footer-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .flow-footer-item span {
+      display: block;
+      color: #dce8ff;
+      font-size: 12px;
+      line-height: 1.45;
     }
 
     .text-link {
@@ -642,8 +906,12 @@
       .hero { min-height: auto; }
       .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .project-media { height: 340px; }
-      .form-shell { grid-template-columns: 1fr; }
-      .form-intro { position: static; }
+      .flow-hero { grid-template-columns: 1fr; }
+      .flow-badge, .flow-orbit { display: none; }
+      .flow-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .flow-card.review-card,
+      .flow-card.success-panel { grid-column: span 1; }
+      .flow-footer { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 24px; }
       .footer { grid-template-columns: 1fr; }
       .footer-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
@@ -660,10 +928,12 @@
       .project-media { height: 430px; }
       .dreams-cta { display: block; }
       .dreams-cta .btn { width: 100%; margin-top: 16px; }
-      .form-grid { grid-template-columns: 1fr; }
-      .partner-form, .form-intro { padding: 20px; }
-      .form-actions { display: block; }
-      .form-actions .btn { width: 100%; margin-bottom: 12px; }
+      .partner-form-section { padding: 18px 10px 0; }
+      .flow-title h2 { font-size: 34px; }
+      .flow-title p { font-size: 16px; }
+      .flow-grid, .resource-grid, .contact-grid, .flow-footer { grid-template-columns: 1fr; }
+      .flow-card { min-height: auto; padding: 18px; border-right: 0; }
+      .flow-arrow { display: none; }
       .section { padding: 66px 5vw; }
       .section-head { display: block; }
     }
@@ -773,130 +1043,154 @@
     </section>
 
     <section class="section partner-form-section" id="partner-form">
-      <div class="form-shell">
-        <div class="form-intro">
-          <img src="images/icons/email-notify.svg" alt="">
-          <p class="eyebrow" data-i18n="formEyebrow">Partner Application</p>
-          <h2 data-i18n="formTitle">Build with Brainwave</h2>
-          <p data-i18n="formIntro">Tell us how you want to work with Brainwave AI. Your application will go directly to our team for review.</p>
-          <div class="form-points">
-            <div class="form-point"><img src="images/icons/operator.svg" alt=""><span data-i18n="formPoint1">Operate or grow a project</span></div>
-            <div class="form-point"><img src="images/icons/merchant-partner.svg" alt=""><span data-i18n="formPoint2">Co-build with Brainwave</span></div>
-            <div class="form-point"><img src="images/icons/investor.svg" alt=""><span data-i18n="formPoint3">Invest in early growth</span></div>
+      <div class="partner-flow">
+        <div class="flow-hero">
+          <div class="flow-badge">
+            <img src="images/icons/merchant-partner.svg" alt="">
+            <span data-i18n="flowBadge">AI Dream Builder</span>
+          </div>
+          <div class="flow-title">
+            <h2><span>Brainwave</span> <strong data-i18n="flowTitle">Partner With Us</strong></h2>
+            <p data-i18n-html="flowSubtitle">Let's build <strong>AI dreams</strong> into <strong>real businesses</strong> together.</p>
+          </div>
+          <div class="flow-orbit">
+            <img src="images/icons/brainwave-play.svg" alt="">
           </div>
         </div>
 
-        <div>
-          <form class="partner-form" id="partner-form-element">
-            <div class="form-grid">
-              <div class="form-field">
-                <label for="full_name" data-i18n="labelName">Full name</label>
-                <input id="full_name" name="full_name" type="text" required autocomplete="name">
+        <form class="partner-form" id="partner-form-element">
+          <div class="flow-grid">
+            <div class="flow-card">
+              <h3><span class="step-number">1</span><span data-i18n="step1Title">What interests you?</span></h3>
+              <p data-i18n="step1Text">Choose the project you are most interested in.</p>
+              <div class="option-list">
+                <label class="flow-option" style="--option-bg:#dbeafe"><img src="images/icons/aiworksmart.svg" alt=""><span>AIWORKSMART</span><input type="radio" name="project_interest" value="AIWORKSMART" required></label>
+                <label class="flow-option" style="--option-bg:#fce7f3"><img src="images/icons/brainwave-play.svg" alt=""><span>Brainwave Play</span><input type="radio" name="project_interest" value="Brainwave Play"></label>
+                <label class="flow-option" style="--option-bg:#f3e8ff"><img src="images/icons/ai-ip-network.svg" alt=""><span>AI IP / Influencer Network</span><input type="radio" name="project_interest" value="AI IP / Influencer Network"></label>
+                <label class="flow-option" style="--option-bg:#dcfce7"><img src="images/icons/ai-education.svg" alt=""><span>AI Education</span><input type="radio" name="project_interest" value="AI Education"></label>
+                <label class="flow-option" style="--option-bg:#ffedd5"><img src="images/icons/smart-kitchen.svg" alt=""><span>Smart Kitchen AI</span><input type="radio" name="project_interest" value="Smart Kitchen AI"></label>
+                <label class="flow-option" style="--option-bg:#ccfbf1"><img src="images/icons/nourish7.svg" alt=""><span>Nourish7</span><input type="radio" name="project_interest" value="Nourish7"></label>
+                <label class="flow-option" style="--option-bg:#dbeafe"><img src="images/icons/ai-pet-legacy.svg" alt=""><span>AI Pet Legacy</span><input type="radio" name="project_interest" value="AI Pet Legacy"></label>
+                <label class="flow-option" style="--option-bg:#f1f5f9"><img src="images/icons/custom-idea.svg" alt=""><span>Other / Custom Idea</span><input type="radio" name="project_interest" value="Other / Custom Idea"></label>
               </div>
-              <div class="form-field">
-                <label for="company_name" data-i18n="labelCompany">Company name</label>
-                <input id="company_name" name="company_name" type="text" autocomplete="organization">
-              </div>
-              <div class="form-field">
-                <label for="email" data-i18n="labelEmail">Email</label>
-                <input id="email" name="email" type="email" required autocomplete="email">
-              </div>
-              <div class="form-field">
-                <label for="phone" data-i18n="labelPhone">Phone</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel">
-              </div>
-              <div class="form-field">
-                <label for="country" data-i18n="labelCountry">Country</label>
-                <input id="country" name="country" type="text" autocomplete="country-name">
-              </div>
-              <div class="form-field">
-                <label for="website" data-i18n="labelWebsite">Website or social link</label>
-                <input id="website" name="website" type="url" placeholder="https://">
-              </div>
-              <div class="form-field">
-                <label for="project_interest" data-i18n="labelProject">Project interest</label>
-                <select id="project_interest" name="project_interest" required>
-                  <option value="" data-i18n="selectProject">Select a project</option>
-                  <option>AIWORKSMART</option>
-                  <option>Brainwave Games</option>
-                  <option>AIStudy</option>
-                  <option>Nourish7</option>
-                  <option>AI Pet Legacy</option>
-                  <option>Smart Kitchen</option>
-                  <option>Aimate</option>
-                  <option>DreamForge</option>
-                  <option>General Partnership</option>
-                </select>
-              </div>
-              <div class="form-field">
-                <label for="partner_type" data-i18n="labelPartnerType">Partner type</label>
-                <select id="partner_type" name="partner_type" required>
-                  <option value="" data-i18n="selectPartner">Select partner type</option>
-                  <option>Operator</option>
-                  <option>Cooperation Partner</option>
-                  <option>Investor</option>
-                  <option>Merchant Partner</option>
-                  <option>Marketing Partner</option>
-                  <option>Technical Partner</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div class="form-field">
-                <label for="business_type" data-i18n="labelBusinessType">Business type</label>
-                <select id="business_type" name="business_type">
-                  <option value="" data-i18n="selectBusiness">Select business type</option>
-                  <option>Restaurant/F&amp;B</option>
-                  <option>Retail</option>
-                  <option>Education</option>
-                  <option>Wellness</option>
-                  <option>Technology</option>
-                  <option>Creator/Media</option>
-                  <option>Investor/Capital</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div class="form-field">
-                <label for="resources" data-i18n="labelResources">What can you bring?</label>
-                <select id="resources" name="resources">
-                  <option value="" data-i18n="selectResources">Select main resource</option>
-                  <option>Industry expertise</option>
-                  <option>Physical location</option>
-                  <option>Sales team</option>
-                  <option>Marketing team</option>
-                  <option>Technical team</option>
-                  <option>Capital</option>
-                  <option>Customer base</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div class="form-field full">
-                <label for="budget" data-i18n="labelBudget">Budget or investment range</label>
-                <select id="budget" name="budget">
-                  <option value="" data-i18n="selectBudget">Select range</option>
-                  <option>Below RM10,000</option>
-                  <option>RM10,000 - RM50,000</option>
-                  <option>RM50,000 - RM200,000</option>
-                  <option>RM200,000+</option>
-                  <option>Not sure yet</option>
-                </select>
-              </div>
-              <div class="form-field full">
-                <label for="message" data-i18n="labelMessage">Tell us about the opportunity</label>
-                <textarea id="message" name="message" data-i18n-placeholder="messagePlaceholder" placeholder="Share your idea, project fit, location, team, or investment interest."></textarea>
-              </div>
+              <span class="flow-arrow">-></span>
             </div>
-            <div class="form-actions">
-              <button class="btn primary" type="submit" id="partner-submit" data-i18n="submitApplication">Submit Application</button>
-              <span class="form-message" id="partner-form-message" data-i18n="formNote">We will review your application and reply if there is a suitable collaboration opportunity.</span>
-            </div>
-          </form>
 
-          <div class="success-panel" id="partner-success">
-            <img src="images/icons/submit-success.svg" alt="">
-            <h2 data-i18n="successTitle">Application Submitted Successfully</h2>
-            <p data-i18n="successMessage">Thank you for your interest in partnering with Brainwave. Our team will review your application and contact you if there is a suitable collaboration opportunity.</p>
-            <a class="btn primary" href="#top" data-i18n="returnHome">Return to Home</a>
+            <div class="flow-card">
+              <h3><span class="step-number">2</span><span data-i18n="step2Title">How would you like to work with us?</span></h3>
+              <p data-i18n="step2Text">Choose the type of partnership you are interested in.</p>
+              <div class="option-list">
+                <label class="flow-option" style="--option-bg:#dcfce7"><img src="images/icons/investor.svg" alt=""><span>I want to invest</span><input type="radio" name="partner_type" value="Investor" required></label>
+                <label class="flow-option" style="--option-bg:#dbeafe"><img src="images/icons/operator.svg" alt=""><span>I want to operate this project</span><input type="radio" name="partner_type" value="Operator"></label>
+                <label class="flow-option" style="--option-bg:#ffedd5"><img src="images/icons/merchant-partner.svg" alt=""><span>I want to become merchant partner</span><input type="radio" name="partner_type" value="Merchant Partner"></label>
+                <label class="flow-option" style="--option-bg:#f3e8ff"><img src="images/icons/product-promotion.svg" alt=""><span>I want to promote my product</span><input type="radio" name="partner_type" value="Marketing Partner"></label>
+                <label class="flow-option" style="--option-bg:#ccfbf1"><img src="images/icons/use-system.svg" alt=""><span>I want to use Brainwave system</span><input type="radio" name="partner_type" value="System User"></label>
+                <label class="flow-option" style="--option-bg:#ffe4e6"><img src="images/icons/build-ai-idea.svg" alt=""><span>I want to build new AI idea together</span><input type="radio" name="partner_type" value="Cooperation Partner"></label>
+              </div>
+              <span class="flow-arrow">-></span>
+            </div>
+
+            <div class="flow-card">
+              <h3><span class="step-number">3</span><span data-i18n="step3Title">Your current business level</span></h3>
+              <p data-i18n="step3Text">Select the option that best describes you.</p>
+              <div class="option-list">
+                <label class="flow-option"><img src="images/icons/custom-idea.svg" alt=""><span>Just curious</span><input type="radio" name="business_type" value="Just curious"></label>
+                <label class="flow-option"><img src="images/icons/operator.svg" alt=""><span>Individual</span><input type="radio" name="business_type" value="Individual"></label>
+                <label class="flow-option"><img src="images/icons/build-ai-idea.svg" alt=""><span>Startup</span><input type="radio" name="business_type" value="Startup"></label>
+                <label class="flow-option"><img src="images/icons/aiworksmart.svg" alt=""><span>SME Small Business</span><input type="radio" name="business_type" value="SME Small Business"></label>
+                <label class="flow-option"><img src="images/icons/merchant-partner.svg" alt=""><span>Established Business</span><input type="radio" name="business_type" value="Established Business"></label>
+                <label class="flow-option"><img src="images/icons/investor.svg" alt=""><span>Investor / Investor Group</span><input type="radio" name="business_type" value="Investor / Investor Group"></label>
+                <label class="flow-option"><img src="images/icons/marketing-team.svg" alt=""><span>Operator / Team</span><input type="radio" name="business_type" value="Operator / Team"></label>
+                <label class="flow-option"><img src="images/icons/capital.svg" alt=""><span>Brand Owner</span><input type="radio" name="business_type" value="Brand Owner"></label>
+              </div>
+              <span class="flow-arrow">-></span>
+            </div>
+
+            <div class="flow-card">
+              <h3><span class="step-number">4</span><span data-i18n="step4Title">Tell us about yourself</span></h3>
+              <p data-i18n="step4Text">Please provide your contact information.</p>
+              <div class="contact-grid">
+                <label class="contact-field full"><img class="contact-icon" src="images/icons/operator.svg" alt=""><input id="full_name" name="full_name" type="text" placeholder="Full Name *" required autocomplete="name"></label>
+                <label class="contact-field full"><img class="contact-icon" src="images/icons/aiworksmart.svg" alt=""><input id="company_name" name="company_name" type="text" placeholder="Company / Brand Name" autocomplete="organization"></label>
+                <label class="contact-field"><img class="contact-icon" src="images/icons/email-notify.svg" alt=""><input id="phone" name="phone" type="tel" placeholder="WhatsApp Number" autocomplete="tel"></label>
+                <label class="contact-field"><img class="contact-icon" src="images/icons/email-notify.svg" alt=""><input id="email" name="email" type="email" placeholder="Email Address *" required autocomplete="email"></label>
+                <label class="contact-field full"><img class="contact-icon" src="images/icons/physical-location.svg" alt=""><input id="country" name="country" type="text" placeholder="Country" autocomplete="country-name"></label>
+                <label class="contact-field full"><img class="contact-icon" src="images/icons/physical-location.svg" alt=""><input name="city" type="text" placeholder="City"></label>
+                <label class="contact-field full"><img class="contact-icon" src="images/icons/customers.svg" alt=""><input id="website" name="website" type="url" placeholder="Website / Social Media (Optional)"></label>
+              </div>
+            </div>
+
+            <div class="flow-card large">
+              <h3><span class="step-number">5</span><span data-i18n="step5Title">What resources can you bring?</span></h3>
+              <p data-i18n="step5Text">Select all that apply.</p>
+              <div class="resource-grid">
+                <label class="resource-option"><img src="images/icons/capital.svg" alt=""><span>Capital Investment</span><input type="checkbox" name="resources" value="Capital Investment"></label>
+                <label class="resource-option"><img src="images/icons/customers.svg" alt=""><span>Existing Customers</span><input type="checkbox" name="resources" value="Existing Customers"></label>
+                <label class="resource-option"><img src="images/icons/physical-location.svg" alt=""><span>Physical Location</span><input type="checkbox" name="resources" value="Physical Location"></label>
+                <label class="resource-option"><img src="images/icons/sales-team.svg" alt=""><span>Sales Team</span><input type="checkbox" name="resources" value="Sales Team"></label>
+                <label class="resource-option"><img src="images/icons/marketing-team.svg" alt=""><span>Marketing Team</span><input type="checkbox" name="resources" value="Marketing Team"></label>
+                <label class="resource-option"><img src="images/icons/technical-team.svg" alt=""><span>Technical Team</span><input type="checkbox" name="resources" value="Technical Team"></label>
+                <label class="resource-option"><img src="images/icons/manufacturing.svg" alt=""><span>Manufacturing Capability</span><input type="checkbox" name="resources" value="Manufacturing Capability"></label>
+                <label class="resource-option"><img src="images/icons/industry-expertise.svg" alt=""><span>Industry Expertise</span><input type="checkbox" name="resources" value="Industry Expertise"></label>
+              </div>
+              <span class="flow-arrow">-></span>
+            </div>
+
+            <div class="flow-card large">
+              <h3><span class="step-number">6</span><span data-i18n="step6Title">Investment / Budget Range</span></h3>
+              <p data-i18n="step6Text">What is your estimated investment or budget range?</p>
+              <div class="option-list">
+                <label class="flow-option"><img src="images/icons/capital.svg" alt=""><span>Under RM10,000</span><input type="radio" name="budget" value="Under RM10,000"></label>
+                <label class="flow-option"><img src="images/icons/investor.svg" alt=""><span>RM10,000 - RM50,000</span><input type="radio" name="budget" value="RM10,000 - RM50,000"></label>
+                <label class="flow-option"><img src="images/icons/operator.svg" alt=""><span>RM50,000 - RM200,000</span><input type="radio" name="budget" value="RM50,000 - RM200,000"></label>
+                <label class="flow-option"><img src="images/icons/merchant-partner.svg" alt=""><span>RM200,000 - RM500,000</span><input type="radio" name="budget" value="RM200,000 - RM500,000"></label>
+                <label class="flow-option"><img src="images/icons/capital.svg" alt=""><span>Above RM500,000</span><input type="radio" name="budget" value="Above RM500,000"></label>
+                <label class="flow-option"><img src="images/icons/custom-idea.svg" alt=""><span>Not sure yet</span><input type="radio" name="budget" value="Not sure yet"></label>
+              </div>
+              <span class="flow-arrow">-></span>
+            </div>
+
+            <div class="flow-card large">
+              <h3><span class="step-number">7</span><span data-i18n="step7Title">Why are you interested?</span></h3>
+              <p data-i18n="step7Text">Tell us more about your goals and what you want to achieve together.</p>
+              <div class="message-box">
+                <textarea id="message" name="message" data-i18n-placeholder="messagePlaceholder" placeholder="Share your idea, experience, and how you think we can build something amazing together..."></textarea>
+                <div class="char-count"><span>Minimum 20 characters</span><span id="message-count">0/1000</span></div>
+              </div>
+              <span class="flow-arrow">-></span>
+            </div>
+
+            <div class="flow-card review-card large">
+              <h3><span class="step-number">8</span><span data-i18n="step8Title">Review & Submit</span></h3>
+              <p data-i18n="step8Text">Please review your information before submitting.</p>
+              <div class="review-list">
+                <div class="review-item"><span><strong>Project Interest</strong><em id="review-project">Choose your project</em></span></div>
+                <div class="review-item"><span><strong>Partner Type</strong><em id="review-partner">Choose partnership type</em></span></div>
+                <div class="review-item"><span><strong>Business Level</strong><em id="review-business">Choose business level</em></span></div>
+              </div>
+              <label class="confirm-row"><input type="checkbox" required><span data-i18n="confirmText">I confirm that the information provided is true and I agree to be contacted by Brainwave.</span></label>
+              <div class="form-actions">
+                <button class="btn primary" type="submit" id="partner-submit" data-i18n="submitApplication">Submit Application</button>
+                <span class="form-message" id="partner-form-message" data-i18n="formNote">We will review your application and reply if there is a suitable collaboration opportunity.</span>
+              </div>
+            </div>
+
+            <div class="flow-card success-panel large" id="partner-success">
+              <div>
+                <div class="success-check">✓</div>
+                <h2 data-i18n="successThanks">Thank You!</h2>
+                <p data-i18n="successMessage">Thank you for your interest in partnering with Brainwave. Our team will review your application and contact you if there is a suitable collaboration opportunity.</p>
+                <a class="btn outline" href="#top" data-i18n="returnHome">Back to Home</a>
+              </div>
+            </div>
           </div>
+        </form>
+
+        <div class="flow-footer">
+          <div class="flow-footer-item"><img src="images/icons/build-ai-idea.svg" alt=""><span><strong>AI Dream Builder</strong>We build AI ideas into real businesses.</span></div>
+          <div class="flow-footer-item"><img src="images/icons/merchant-partner.svg" alt=""><span><strong>Win-Win Partnership</strong>We grow together for long term success.</span></div>
+          <div class="flow-footer-item"><img src="images/icons/aiworksmart.svg" alt=""><span><strong>Real Impact</strong>From digital to physical, we create real value.</span></div>
+          <div class="flow-footer-item"><img src="images/icons/marketing-team.svg" alt=""><span><strong>Future Together</strong>Let's shape the future with AI and innovation.</span></div>
         </div>
       </div>
     </section>
@@ -999,7 +1293,28 @@
         submitError: "Sorry, the application could not be submitted. Please try again.",
         successTitle: "Application Submitted Successfully",
         successMessage: "Thank you for your interest in partnering with Brainwave. Our team will review your application and contact you if there is a suitable collaboration opportunity.",
-        returnHome: "Return to Home"
+        returnHome: "Return to Home",
+        flowBadge: "AI Dream Builder",
+        flowTitle: "Partner With Us",
+        flowSubtitle: "Let's build <strong>AI dreams</strong> into <strong>real businesses</strong> together.",
+        step1Title: "What interests you?",
+        step1Text: "Choose the project you are most interested in.",
+        step2Title: "How would you like to work with us?",
+        step2Text: "Choose the type of partnership you are interested in.",
+        step3Title: "Your current business level",
+        step3Text: "Select the option that best describes you.",
+        step4Title: "Tell us about yourself",
+        step4Text: "Please provide your contact information.",
+        step5Title: "What resources can you bring?",
+        step5Text: "Select all that apply.",
+        step6Title: "Investment / Budget Range",
+        step6Text: "What is your estimated investment or budget range?",
+        step7Title: "Why are you interested?",
+        step7Text: "Tell us more about your goals and what you want to achieve together.",
+        step8Title: "Review & Submit",
+        step8Text: "Please review your information before submitting.",
+        confirmText: "I confirm that the information provided is true and I agree to be contacted by Brainwave.",
+        successThanks: "Thank You!"
       },
       zh: {
         navHome: "首页",
@@ -1076,7 +1391,28 @@
         submitError: "\u62b1\u6b49\uff0c\u7533\u8bf7\u6682\u65f6\u65e0\u6cd5\u63d0\u4ea4\u3002\u8bf7\u518d\u8bd5\u4e00\u6b21\u3002",
         successTitle: "\u7533\u8bf7\u5df2\u6210\u529f\u63d0\u4ea4",
         successMessage: "\u611f\u8c22\u4f60\u6709\u5174\u8da3\u4e0e Brainwave \u5408\u4f5c\u3002\u6211\u4eec\u56e2\u961f\u4f1a\u5ba1\u9605\u4f60\u7684\u7533\u8bf7\uff0c\u5982\u679c\u6709\u5408\u9002\u7684\u5408\u4f5c\u673a\u4f1a\u4f1a\u8054\u7cfb\u4f60\u3002",
-        returnHome: "\u56de\u5230\u9996\u9875"
+        returnHome: "\u56de\u5230\u9996\u9875",
+        flowBadge: "AI \u68a6\u60f3\u5efa\u9020\u8005",
+        flowTitle: "\u5408\u4f5c\u4f19\u4f34\u7533\u8bf7",
+        flowSubtitle: "\u8ba9\u6211\u4eec\u4e00\u8d77\u628a <strong>AI \u68a6\u60f3</strong> \u5efa\u9020\u6210 <strong>\u771f\u5b9e\u4e8b\u4e1a</strong>\u3002",
+        step1Title: "\u4f60\u5bf9\u4ec0\u4e48\u611f\u5174\u8da3\uff1f",
+        step1Text: "\u9009\u62e9\u4f60\u6700\u611f\u5174\u8da3\u7684\u9879\u76ee\u3002",
+        step2Title: "\u4f60\u60f3\u5982\u4f55\u4e0e\u6211\u4eec\u5408\u4f5c\uff1f",
+        step2Text: "\u9009\u62e9\u4f60\u611f\u5174\u8da3\u7684\u5408\u4f5c\u65b9\u5f0f\u3002",
+        step3Title: "\u4f60\u76ee\u524d\u7684\u4e1a\u52a1\u9636\u6bb5",
+        step3Text: "\u9009\u62e9\u6700\u7b26\u5408\u4f60\u7684\u9009\u9879\u3002",
+        step4Title: "\u8bf7\u544a\u8bc9\u6211\u4eec\u4f60\u7684\u8d44\u6599",
+        step4Text: "\u8bf7\u63d0\u4f9b\u4f60\u7684\u8054\u7cfb\u65b9\u5f0f\u3002",
+        step5Title: "\u4f60\u80fd\u5e26\u6765\u4ec0\u4e48\u8d44\u6e90\uff1f",
+        step5Text: "\u53ef\u9009\u62e9\u591a\u4e2a\u9009\u9879\u3002",
+        step6Title: "\u6295\u8d44 / \u9884\u7b97\u8303\u56f4",
+        step6Text: "\u4f60\u9884\u8ba1\u7684\u6295\u8d44\u6216\u9884\u7b97\u8303\u56f4\u662f\u591a\u5c11\uff1f",
+        step7Title: "\u4e3a\u4ec0\u4e48\u60f3\u4e0e Brainwave \u5408\u4f5c\uff1f",
+        step7Text: "\u544a\u8bc9\u6211\u4eec\u4f60\u7684\u76ee\u6807\u548c\u60f3\u4e00\u8d77\u5b9e\u73b0\u7684\u4e8b\u60c5\u3002",
+        step8Title: "\u786e\u8ba4\u5e76\u63d0\u4ea4",
+        step8Text: "\u63d0\u4ea4\u524d\u8bf7\u786e\u8ba4\u4f60\u7684\u8d44\u6599\u3002",
+        confirmText: "\u6211\u786e\u8ba4\u4ee5\u4e0a\u8d44\u6599\u771f\u5b9e\uff0c\u5e76\u540c\u610f Brainwave \u8054\u7cfb\u6211\u3002",
+        successThanks: "\u8c22\u8c22\uff01"
       }
     };
 
@@ -1109,6 +1445,32 @@
     const partnerMessage = document.getElementById("partner-form-message");
     const partnerSubmit = document.getElementById("partner-submit");
     const partnerSuccess = document.getElementById("partner-success");
+    const reviewProject = document.getElementById("review-project");
+    const reviewPartner = document.getElementById("review-partner");
+    const reviewBusiness = document.getElementById("review-business");
+    const messageInput = document.getElementById("message");
+    const messageCount = document.getElementById("message-count");
+
+    function selectedValue(name, fallback) {
+      const selected = document.querySelector(`[name="${name}"]:checked`);
+      return selected ? selected.value : fallback;
+    }
+
+    function updateReview() {
+      if (reviewProject) reviewProject.textContent = selectedValue("project_interest", "Choose your project");
+      if (reviewPartner) reviewPartner.textContent = selectedValue("partner_type", "Choose partnership type");
+      if (reviewBusiness) reviewBusiness.textContent = selectedValue("business_type", "Choose business level");
+    }
+
+    document.querySelectorAll('input[type="radio"]').forEach((input) => {
+      input.addEventListener("change", updateReview);
+    });
+
+    if (messageInput && messageCount) {
+      messageInput.addEventListener("input", () => {
+        messageCount.textContent = `${messageInput.value.length}/1000`;
+      });
+    }
 
     if (partnerForm) {
       partnerForm.addEventListener("submit", async (event) => {
@@ -1117,6 +1479,7 @@
         const dictionary = translations[lang] || translations.en;
         const formData = new FormData(partnerForm);
         const payload = Object.fromEntries(formData.entries());
+        payload.resources = formData.getAll("resources").join(", ");
 
         partnerSubmit.disabled = true;
         partnerSubmit.textContent = dictionary.submitting;
@@ -1132,7 +1495,8 @@
           if (!response.ok) throw new Error("Submission failed");
 
           partnerForm.reset();
-          partnerForm.style.display = "none";
+          updateReview();
+          partnerForm.classList.add("submitted");
           partnerSuccess.classList.add("visible");
           partnerSuccess.scrollIntoView({ behavior: "smooth", block: "center" });
         } catch (error) {
