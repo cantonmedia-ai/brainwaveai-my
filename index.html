@@ -68,11 +68,45 @@
     }
 
     .wave-logo {
-      width: 58px;
-      height: 58px;
+      width: 104px;
+      height: 72px;
       object-fit: contain;
-      border-radius: 14px;
+      border-radius: 16px;
       background: #fff;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .language-switch {
+      display: inline-flex;
+      gap: 4px;
+      padding: 5px;
+      border-radius: 999px;
+      background: #eef5ff;
+      border: 1px solid #d8e7ff;
+    }
+
+    .language-switch button {
+      min-width: 46px;
+      height: 34px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--navy);
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .language-switch button.active {
+      background: #fff;
+      color: var(--blue);
+      box-shadow: 0 6px 16px rgba(6, 50, 127, .12);
     }
 
     .nav {
@@ -459,7 +493,9 @@
     @media (max-width: 680px) {
       .header .btn { display: none; }
       .brand { font-size: 21px; }
-      .wave-logo { width: 48px; height: 48px; }
+      .wave-logo { width: 82px; height: 58px; }
+      .language-switch { margin-left: auto; }
+      .header-actions .btn { display: none; }
       .hero { padding-top: 54px; }
       .actions .btn { width: 100%; }
       .project-grid, .footer-cols { grid-template-columns: 1fr; }
@@ -488,16 +524,22 @@
   </svg>
 
   <header class="header">
-    <a class="brand" href="#top"><img class="wave-logo" src="images/brand/brainwave-logo.png" alt="Brainwave logo"><span>Brainwave AI</span></a>
+    <a class="brand" href="#top"><img class="wave-logo" src="images/brand/brainwave-logo.png" alt="Brainwave logo"></a>
     <nav class="nav" aria-label="Main navigation">
-      <a class="active" href="#top">Home</a>
-      <a href="#projects">Projects</a>
+      <a class="active" href="#top" data-i18n="navHome">Home</a>
+      <a href="#projects" data-i18n="navProjects">Projects</a>
       <a href="https://play.brainwaveai.my">Play</a>
-      <a href="https://learn.brainwaveai.my">Learn</a>
+      <a href="https://learn.brainwaveai.my" data-i18n="navLearn">Learn</a>
       <a href="https://aiworksmart.my">AIWORKSMART</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact" data-i18n="navContact">Contact</a>
     </nav>
-    <a class="btn primary" href="mailto:hello@brainwaveai.my">Partner With Us</a>
+    <div class="header-actions">
+      <div class="language-switch" aria-label="Language switch">
+        <button type="button" class="active" data-lang="en">EN</button>
+        <button type="button" data-lang="zh">中文</button>
+      </div>
+      <a class="btn primary" href="mailto:hello@brainwaveai.my" data-i18n="partnerButton">Partner With Us</a>
+    </div>
   </header>
 
   <main id="top">
@@ -506,12 +548,12 @@
       <span class="sparkle s1">+</span><span class="sparkle s2">+</span><span class="sparkle s3">*</span>
 
       <div>
-        <p class="eyebrow">AI Dream Builder & Project Incubator</p>
-        <h1>We Build AI Dreams Into <span class="gradient">Real Businesses</span></h1>
-        <p>Brainwave AI creates and incubates practical AI projects, then works with operators, partners, and investors to turn them into living businesses.</p>
+        <p class="eyebrow" data-i18n="heroEyebrow">AI Dream Builder & Project Incubator</p>
+        <h1 data-i18n-html="heroTitle">We Build AI Dreams Into <span class="gradient">Real Businesses</span></h1>
+        <p data-i18n="heroText">Brainwave AI creates and incubates practical AI projects, then works with operators, partners, and investors to turn them into living businesses.</p>
         <div class="actions">
-          <a class="btn primary" href="#projects">Explore Projects</a>
-          <a class="btn outline" href="#contact">Work With Brainwave</a>
+          <a class="btn primary" href="#projects" data-i18n="exploreButton">Explore Projects</a>
+          <a class="btn outline" href="#contact" data-i18n="workButton">Work With Brainwave</a>
         </div>
       </div>
     </section>
@@ -520,50 +562,50 @@
       <div class="dreams-inner">
         <div class="section-head">
           <div>
-            <p class="eyebrow">AI Dream Builder Projects</p>
-            <h2>Dreams in Progress</h2>
+            <p class="eyebrow" data-i18n="dreamsEyebrow">AI Dream Builder Projects</p>
+            <h2 data-i18n="dreamsTitle">Dreams in Progress</h2>
           </div>
-          <p class="intro">Real ideas. Real prototypes. Real businesses in the making.</p>
+          <p class="intro" data-i18n="dreamsSubtitle">Real ideas. Real prototypes. Real businesses in the making.</p>
         </div>
 
         <div class="project-grid">
           <article class="project-card" style="--bubble:#d8efff;--ink:#0B5CFF;--status-bg:#DCFCE7;--status-fg:#15803D;--dot:#22C55E">
             <div class="project-media"><span class="pin"><svg><use href="#chart"/></svg></span><img src="images/projects/aiworksmart.png" alt="AIWORKSMART staff operations dashboard with team reviewing performance metrics"></div>
-            <div class="project-body"><h3>AIWORKSMART</h3><p>Smart staff operations, SOPs, training, task management, and performance insights.</p><span class="status">Operating</span><a class="view-project" href="#">View Project -></a></div>
+            <div class="project-body"><h3>AIWORKSMART</h3><p data-i18n="p1Desc">Smart staff operations, SOPs, training, task management, and performance insights.</p><span class="status" data-i18n="statusOperating">Operating</span><a class="view-project" href="#" data-i18n="viewProject">View Project -></a></div>
           </article>
           <article class="project-card" style="--bubble:#ffe0eb;--ink:#FF4F8B;--status-bg:#FFEDD5;--status-fg:#C2410C;--dot:#F97316">
             <div class="project-media"><span class="pin"><svg><use href="#game"/></svg></span><img src="images/projects/brainwave-games.png" alt="Brainwave Games mobile reward screen showing points and claim reward interface"></div>
-            <div class="project-body"><h3>Brainwave Games</h3><p>Mini games, lucky rewards, points, vouchers, and traffic campaigns that turn online attention into real action.</p><span class="status">Prototype</span><a class="view-project" href="#">View Project -></a></div>
+            <div class="project-body"><h3>Brainwave Games</h3><p data-i18n="p2Desc">Mini games, lucky rewards, points, vouchers, and traffic campaigns that turn online attention into real action.</p><span class="status" data-i18n="statusPrototype">Prototype</span><a class="view-project" href="#" data-i18n="viewProject">View Project -></a></div>
           </article>
           <article class="project-card" style="--bubble:#dcf8f2;--ink:#22C7B8;--status-bg:#DBEAFE;--status-fg:#1D4ED8;--dot:#3B82F6">
             <div class="project-media"><span class="pin"><svg><use href="#book"/></svg></span><img src="images/projects/aistudy.png" alt="AIStudy warm learning scene with parent guiding child on a tablet"></div>
-            <div class="project-body"><h3>AIStudy</h3><p>Homework AI, lesson support, quizzes, and step-by-step learning assistance.</p><span class="status">Testing</span><a class="view-project" href="#">View Project -></a></div>
+            <div class="project-body"><h3>AIStudy</h3><p data-i18n="p3Desc">Homework AI, lesson support, quizzes, and step-by-step learning assistance.</p><span class="status" data-i18n="statusTesting">Testing</span><a class="view-project" href="#" data-i18n="viewProject">View Project -></a></div>
           </article>
           <article class="project-card" style="--bubble:#e6f8c7;--ink:#34C759;--status-bg:#DCFCE7;--status-fg:#15803D;--dot:#22C55E">
             <div class="project-media"><span class="pin"><svg><use href="#leaf"/></svg></span><img src="images/projects/nourish7.png" alt="Nourish7 premium bird nest wellness product lifestyle scene"></div>
-            <div class="project-body"><h3>Nourish7</h3><p>Wellness content, bird nest products, lifestyle guides, and customer support.</p><span class="status">Operating</span><a class="view-project" href="#">View Project -></a></div>
+            <div class="project-body"><h3>Nourish7</h3><p data-i18n="p4Desc">Wellness content, bird nest products, lifestyle guides, and customer support.</p><span class="status" data-i18n="statusOperating">Operating</span><a class="view-project" href="#" data-i18n="viewProject">View Project -></a></div>
           </article>
           <article class="project-card" style="--bubble:#ffe4ca;--ink:#FF8A3D;--status-bg:#FEF3C7;--status-fg:#B45309;--dot:#FBBF24">
             <div class="project-media"><span class="pin"><svg><use href="#paw"/></svg></span><img src="images/projects/ai-pet-legacy.png" alt="AI Pet Legacy warm home moment with owner hugging a golden retriever"></div>
-            <div class="project-body"><h3>AI Pet Legacy</h3><p>A warm memory companion for pet owners to preserve stories, photos, habits, voices, and emotional memories.</p><span class="status">Idea Stage</span><a class="view-project" href="#">View Project -></a></div>
+            <div class="project-body"><h3>AI Pet Legacy</h3><p data-i18n="p5Desc">A warm memory companion for pet owners to preserve stories, photos, habits, voices, and emotional memories.</p><span class="status" data-i18n="statusIdea">Idea Stage</span><a class="view-project" href="#" data-i18n="viewProject">View Project -></a></div>
           </article>
           <article class="project-card" style="--bubble:#ffe4d7;--ink:#FF8A3D;--status-bg:#FFEDD5;--status-fg:#C2410C;--dot:#F97316">
             <div class="project-media"><span class="pin"><svg><use href="#chef"/></svg></span><img src="images/projects/smart-kitchen.png" alt="Smart Kitchen professional kitchen with chefs and digital order workflow screen"></div>
-            <div class="project-body"><h3>Smart Kitchen</h3><p>A kitchen operation system for order flow, KDS, prep timing, task assignment, plating, training, and tracking.</p><span class="status">Prototype</span><a class="view-project" href="#">View Project -></a></div>
+            <div class="project-body"><h3>Smart Kitchen</h3><p data-i18n="p6Desc">A kitchen operation system for order flow, KDS, prep timing, task assignment, plating, training, and tracking.</p><span class="status" data-i18n="statusPrototype">Prototype</span><a class="view-project" href="#" data-i18n="viewProject">View Project -></a></div>
           </article>
           <article class="project-card" style="--bubble:#efe4ff;--ink:#8B5CF6;--status-bg:#DBEAFE;--status-fg:#1D4ED8;--dot:#3B82F6">
             <div class="project-media"><span class="pin"><svg><use href="#people"/></svg></span><img src="images/projects/aimate.png" alt="Aimate creator studio with ring light and social traffic growth visuals"></div>
-            <div class="project-body"><h3>Aimate</h3><p>A creative AI character and digital host network for content, traffic, campaigns, and audience connection.</p><span class="status">Testing</span><a class="view-project" href="#">View Project -></a></div>
+            <div class="project-body"><h3>Aimate</h3><p data-i18n="p7Desc">A creative AI character and digital host network for content, traffic, campaigns, and audience connection.</p><span class="status" data-i18n="statusTesting">Testing</span><a class="view-project" href="#" data-i18n="viewProject">View Project -></a></div>
           </article>
           <article class="project-card" style="--bubble:#dff2ff;--ink:#22C7B8;--status-bg:#F3E8FF;--status-fg:#7E22CE;--dot:#A855F7">
             <div class="project-media"><span class="pin"><svg><use href="#flask"/></svg></span><img src="images/projects/dreamforge.png" alt="DreamForge creative team brainstorming prototypes with whiteboard and sticky notes"></div>
-            <div class="project-body"><h3>DreamForge</h3><p>A creative venture studio where new AI business ideas are shaped, tested, improved, and prepared for partners.</p><span class="status">Looking for Partner</span><a class="view-project" href="#">View Project -></a></div>
+            <div class="project-body"><h3>DreamForge</h3><p data-i18n="p8Desc">A creative venture studio where new AI business ideas are shaped, tested, improved, and prepared for partners.</p><span class="status" data-i18n="statusPartner">Looking for Partner</span><a class="view-project" href="#" data-i18n="viewProject">View Project -></a></div>
           </article>
         </div>
 
         <div class="dreams-cta">
-          <span>From ideas to impact &mdash; these projects are building the future together.</span>
-          <a class="btn primary" href="#">View All Projects</a>
+          <span data-i18n-html="ctaText">From ideas to impact &mdash; these projects are building the future together.</span>
+          <a class="btn primary" href="#" data-i18n="viewAll">View All Projects</a>
         </div>
       </div>
     </section>
@@ -572,14 +614,14 @@
 
   <footer class="footer" id="contact">
     <div>
-      <a class="brand" href="#top"><img class="wave-logo" src="images/brand/brainwave-logo.png" alt="Brainwave logo"><span>Brainwave AI</span></a>
-      <p>Warm, cheerful, purposeful. Building AI dreams into practical businesses.</p>
+      <a class="brand" href="#top"><img class="wave-logo" src="images/brand/brainwave-logo.png" alt="Brainwave logo"></a>
+      <p data-i18n="footerTagline">Warm, cheerful, purposeful. Building AI dreams into practical businesses.</p>
     </div>
     <div class="footer-cols">
-      <div><h3>Company</h3><a href="#top">About Us</a><a href="#top">Our Mission</a><a href="#contact">Careers</a></div>
-      <div><h3>Projects</h3><a href="#projects">All Projects</a><a href="#projects">Active Projects</a><a href="#contact">Partner With Us</a></div>
-      <div><h3>Resources</h3><a href="https://learn.brainwaveai.my">Learn</a><a href="#contact">Blog</a><a href="#contact">Events</a></div>
-      <div><h3>Legal</h3><a href="#contact">Privacy Policy</a><a href="#contact">Terms of Use</a><a href="#contact">Disclaimer</a></div>
+      <div><h3 data-i18n="company">Company</h3><a href="#top" data-i18n="about">About Us</a><a href="#top" data-i18n="mission">Our Mission</a><a href="#contact" data-i18n="careers">Careers</a></div>
+      <div><h3 data-i18n="projects">Projects</h3><a href="#projects" data-i18n="allProjects">All Projects</a><a href="#projects" data-i18n="activeProjects">Active Projects</a><a href="#contact" data-i18n="partnerButton">Partner With Us</a></div>
+      <div><h3 data-i18n="resources">Resources</h3><a href="https://learn.brainwaveai.my" data-i18n="navLearn">Learn</a><a href="#contact" data-i18n="blog">Blog</a><a href="#contact" data-i18n="events">Events</a></div>
+      <div><h3 data-i18n="legal">Legal</h3><a href="#contact" data-i18n="privacy">Privacy Policy</a><a href="#contact" data-i18n="terms">Terms of Use</a><a href="#contact" data-i18n="disclaimer">Disclaimer</a></div>
     </div>
     <div class="quick-links">
       <a href="https://play.brainwaveai.my" style="--tag:#f23c8c">play.brainwaveai.my</a>
@@ -589,5 +631,124 @@
     </div>
     <div class="copyright">Copyright 2026 Brainwave AI. All rights reserved.</div>
   </footer>
+  <script>
+    const translations = {
+      en: {
+        navHome: "Home",
+        navProjects: "Projects",
+        navLearn: "Learn",
+        navContact: "Contact",
+        partnerButton: "Partner With Us",
+        heroEyebrow: "AI Dream Builder & Project Incubator",
+        heroTitle: "We Build AI Dreams Into <span class=\"gradient\">Real Businesses</span>",
+        heroText: "Brainwave AI creates and incubates practical AI projects, then works with operators, partners, and investors to turn them into living businesses.",
+        exploreButton: "Explore Projects",
+        workButton: "Work With Brainwave",
+        dreamsEyebrow: "AI Dream Builder Projects",
+        dreamsTitle: "Dreams in Progress",
+        dreamsSubtitle: "Real ideas. Real prototypes. Real businesses in the making.",
+        p1Desc: "Smart staff operations, SOPs, training, task management, and performance insights.",
+        p2Desc: "Mini games, lucky rewards, points, vouchers, and traffic campaigns that turn online attention into real action.",
+        p3Desc: "Homework AI, lesson support, quizzes, and step-by-step learning assistance.",
+        p4Desc: "Wellness content, bird nest products, lifestyle guides, and customer support.",
+        p5Desc: "A warm memory companion for pet owners to preserve stories, photos, habits, voices, and emotional memories.",
+        p6Desc: "A kitchen operation system for order flow, KDS, prep timing, task assignment, plating, training, and tracking.",
+        p7Desc: "A creative AI character and digital host network for content, traffic, campaigns, and audience connection.",
+        p8Desc: "A creative venture studio where new AI business ideas are shaped, tested, improved, and prepared for partners.",
+        statusOperating: "Operating",
+        statusPrototype: "Prototype",
+        statusTesting: "Testing",
+        statusIdea: "Idea Stage",
+        statusPartner: "Looking for Partner",
+        viewProject: "View Project ->",
+        ctaText: "From ideas to impact &mdash; these projects are building the future together.",
+        viewAll: "View All Projects",
+        footerTagline: "Warm, cheerful, purposeful. Building AI dreams into practical businesses.",
+        company: "Company",
+        about: "About Us",
+        mission: "Our Mission",
+        careers: "Careers",
+        projects: "Projects",
+        allProjects: "All Projects",
+        activeProjects: "Active Projects",
+        resources: "Resources",
+        blog: "Blog",
+        events: "Events",
+        legal: "Legal",
+        privacy: "Privacy Policy",
+        terms: "Terms of Use",
+        disclaimer: "Disclaimer"
+      },
+      zh: {
+        navHome: "首页",
+        navProjects: "项目",
+        navLearn: "学习",
+        navContact: "联系",
+        partnerButton: "成为伙伴",
+        heroEyebrow: "AI 梦想建造者与项目孵化器",
+        heroTitle: "把 AI 梦想变成<span class=\"gradient\">真实事业</span>",
+        heroText: "Brainwave AI 创造并孵化实用的 AI 项目，再与运营者、合作伙伴和投资者一起，把想法发展成真正可落地的业务。",
+        exploreButton: "探索项目",
+        workButton: "与 Brainwave 合作",
+        dreamsEyebrow: "AI 梦想建造项目",
+        dreamsTitle: "进行中的梦想",
+        dreamsSubtitle: "真实想法。真实原型。正在成形的真实事业。",
+        p1Desc: "智能员工运营、SOP、培训、任务管理与绩效洞察系统。",
+        p2Desc: "小游戏、幸运奖励、积分、优惠券与流量活动，把线上关注转化为真实行动。",
+        p3Desc: "作业 AI、课程辅助、测验与一步一步的学习支持。",
+        p4Desc: "健康内容、燕窝产品、生活方式指南与客户支持。",
+        p5Desc: "为宠物主人保存故事、照片、习惯、声音与情感记忆的温暖数字陪伴项目。",
+        p6Desc: "协助餐厅管理订单流程、KDS、备餐时间、任务分配、出餐协调、培训与绩效追踪。",
+        p7Desc: "AI 角色与数字主持人网络，用于内容创作、流量增长、活动推广与受众连接。",
+        p8Desc: "创意型事业工作室，用来塑造、测试、优化新的 AI 商业想法，并为未来合作伙伴做好准备。",
+        statusOperating: "运营中",
+        statusPrototype: "原型阶段",
+        statusTesting: "测试中",
+        statusIdea: "想法阶段",
+        statusPartner: "寻找伙伴",
+        viewProject: "查看项目 ->",
+        ctaText: "从想法到影响力 &mdash; 这些项目正在一起建造未来。",
+        viewAll: "查看全部项目",
+        footerTagline: "温暖、快乐、有目标。把 AI 梦想变成实用事业。",
+        company: "公司",
+        about: "关于我们",
+        mission: "我们的使命",
+        careers: "加入我们",
+        projects: "项目",
+        allProjects: "全部项目",
+        activeProjects: "进行中项目",
+        resources: "资源",
+        blog: "博客",
+        events: "活动",
+        legal: "法律",
+        privacy: "隐私政策",
+        terms: "使用条款",
+        disclaimer: "免责声明"
+      }
+    };
+
+    function setLanguage(lang) {
+      const dictionary = translations[lang] || translations.en;
+      document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.getAttribute("data-i18n");
+        if (dictionary[key]) element.textContent = dictionary[key];
+      });
+      document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+        const key = element.getAttribute("data-i18n-html");
+        if (dictionary[key]) element.innerHTML = dictionary[key];
+      });
+      document.querySelectorAll("[data-lang]").forEach((button) => {
+        button.classList.toggle("active", button.getAttribute("data-lang") === lang);
+      });
+      localStorage.setItem("brainwaveLanguage", lang);
+    }
+
+    document.querySelectorAll("[data-lang]").forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.getAttribute("data-lang")));
+    });
+
+    setLanguage(localStorage.getItem("brainwaveLanguage") || "en");
+  </script>
 </body>
 </html>
